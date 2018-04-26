@@ -24,6 +24,8 @@ public class MarkingPlacement : MonoBehaviour {
 
         if (Physics.Raycast(staticcamera.position, Ray, out hit))
         {
+            var UVCoord = hit.textureCoord;
+            Debug.Log(UVCoord);
             var hitRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
             //gameObject.transform.rotation = hitRotation;
             //gameObject.transform.position = hit.point;
