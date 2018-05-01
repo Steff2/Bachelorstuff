@@ -5,10 +5,10 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
 
     public Transform target;
-
+    //Sets the position of the Camera
     void Start()
     {
-        transform.position = target.transform.position + new Vector3(-100, 0, 100);
+        transform.position = target.transform.position + new Vector3(-90, 30, 90);
 
         //Rotation.SetLookRotation(new Vector3(0, 0, 1), new Vector3(0, -1, 0));
     }
