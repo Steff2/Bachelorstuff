@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NeedleController : MonoBehaviour {
-    //public int NeedleCount; //Amount of Needles placed
-    //public int MarkerCount; //Amount of Markers on the skin
     public float speed; //Adjustement of the forward/backward movement of the needle
 
     public GameObject Tumor; //The tumor Object
     public Projector Marker; //The Object Projecting the Marker
-    public GameObject Seed;
+    public List<int> MarkerList; //Marker counter with list.size and Elements contain Needle count
+    public GameObject Seed; //The Seed planted in the Tumor
     public GameObject Skin; //The Skin Object
 
     private Rigidbody rb;
@@ -26,7 +25,7 @@ public class NeedleController : MonoBehaviour {
         if (Physics.Raycast(Marker.transform.position, Marker.transform.forward, out hit))
         {
             var EntryDirection = Tumor.transform.position - hit.point;
-            gameObject.transform.position = hit.point - EntryDirection.normalized * 10;
+            gameObject.transform.position = hit.point - EntryDirection.normalized * 50;
             gameObject.transform.LookAt(Tumor.transform);
         }
         /*
@@ -50,7 +49,6 @@ public class NeedleController : MonoBehaviour {
         //}
 
     }
-
     // Update is called once per frame
     // Movement of the Needle, vertical and horizontal
     void Update () {
