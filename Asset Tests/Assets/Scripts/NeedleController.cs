@@ -27,12 +27,20 @@ public class NeedleController : MonoBehaviour {
             var EntryDirection = Tumor.transform.position - hit.point;
             gameObject.transform.position = hit.point - EntryDirection.normalized * 50;
             gameObject.transform.LookAt(Tumor.transform);
+            for (int i = 0; i < MarkerList[1]; i++)
+            {
+                var Needles = Instantiate();
+                Needles.transform.position = hit.point - EntryDirection.normalized * 10;
+                Needles.transform.position += new Vector3(Random.Range(10, 15), Random.Range(10, 15), 0);
+                Needles.transform.LookAt(hit.transform);
+            }
         }
         /*
-        for (int i = 0; i < MarkerCount; i++)
+        for (int i = 2; i < MarkerList.Count; i++)
         {
-            var MarkerInst = Instantiate(Marker, Marker.transform.position);
-            MarkerInst.transform.position += new Vector3(Random.Range(15, 20), Random.Range(15, 20), 0);
+
+            var MarkerInst = Instantiate(g, Marker.transform.position);
+            MarkerInst.transform.position += new Vector3(Random.Range(10, 15), Random.Range(10, 15), 0);
             if (Physics.Raycast(MarkerInst.transform.position, MarkerInst.transform.forward, out hit))
             {
                 var EntryDirection = Tumor.transform.position - hit.point;
