@@ -6,13 +6,12 @@ public class USCameraFrontController : MonoBehaviour {
 
     public Transform needle;
     
-	// Use this for initialization
+    // Set the position of the camera to that of the needle 
 	void Start () {
         gameObject.transform.position = needle.position;
         gameObject.transform.LookAt(needle);
 	}
-	
-	// Update is called once per frame
+	// Always keep the camera at an offset while moving the needle
 	void Update () {
         gameObject.transform.position = needle.position;
         gameObject.transform.localPosition -= new Vector3(0, -20, 99);

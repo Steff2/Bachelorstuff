@@ -7,13 +7,15 @@ public class NeedlePlacement : MonoBehaviour {
     public GameObject Tumor; //The tumor Object
     public Projector Marker; //The Object Projecting the Marker
     public List<int> MarkerList; //Marker counter with list.size and Elements contain Needle count
-    public GameObject Needle;
+    public GameObject Needle; //The Needle Object
 
     [SerializeField]
     //Range of position variation of the Marker
     private Vector3 Range; //Adjustment of the Placement of the Markers
 
-    // Use this for initialization
+    // Sets the Markers with adjustable Range and sets the corresponding Needles which amount per marker is changeable,
+    // through the point of the Raycast hit with the Skin from the Projector
+    // Needles here are facing the Marker only, for now
     void Start () {
         RaycastHit hit;
 
@@ -47,16 +49,6 @@ public class NeedlePlacement : MonoBehaviour {
                 }
             }
         }*/
-
-        //int x = 1;
-        //while(x!=NeedleCount)
-        //{
-        //  var AnotherNeedle = Instantiate(gameObject);
-        //}
     }
 
-    // Update is called once per frame
-    void Update () {
-		
-	}
 }

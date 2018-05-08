@@ -9,8 +9,6 @@ public class CameraController : MonoBehaviour {
     void Start()
     {
         transform.position = target.transform.position + new Vector3(-90, 30, 90);
-
-        //Rotation.SetLookRotation(new Vector3(0, 0, 1), new Vector3(0, -1, 0));
     }
 
     //private void Update()
