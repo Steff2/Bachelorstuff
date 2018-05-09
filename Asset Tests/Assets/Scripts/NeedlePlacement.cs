@@ -1,21 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Handles the placement of the markers and their corresponding needles
+/// </summary>
 public class NeedlePlacement : MonoBehaviour {
 
     public GameObject Tumor; //The tumor Object
-    public Projector Marker; //The Object Projecting the Marker
-    public List<int> MarkerList; //Marker counter with list.size and Elements contain Needle count
+    public Projector Marker; ///The Object Projecting the Marker
+    public List<int> MarkerList; ///Marker counter with list.size and Elements contain Needle count
     public GameObject Needle; //The Needle Object
 
     [SerializeField]
-    //Range of position variation of the Marker
+    ///Range of position variation of the Marker
     private Vector3 Range; //Adjustment of the Placement of the Markers
 
-    // Sets the Markers with adjustable Range and sets the corresponding Needles which amount per marker is changeable,
-    // through the point of the Raycast hit with the Skin from the Projector
-    // Needles here are facing the Marker only, for now
+    /**< Sets the Markers with adjustable Range and sets the corresponding Needles which amount per marker is changeable,
+      *through the point of the Raycast hit with the Skin from the Projector
+      *Needles here are facing the Marker only, for now */
     void Start () {
         RaycastHit hit;
 

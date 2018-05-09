@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Handles the game preview camera
+/// </summary>
 public class CameraController : MonoBehaviour {
 
-    public Transform target;
-    //Sets the position of the Camera
+    public Transform target;///< The Object the camera is fixated on
+
+    ///Sets the position of the Camera
     void Start()
     {
         transform.position = target.transform.position + new Vector3(-90, 30, 90);

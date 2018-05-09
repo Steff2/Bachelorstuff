@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// Enables the camera to be switched
+/// This class handles the switching of the Ultrasound cameras
 public class CameraSwitch : MonoBehaviour
 {
 
-    public Camera cam1;
-    public Camera cam2;
+    public Camera cam1; ///< The side camera view
+    public Camera cam2; ///< The front camera view
 
     void Start()
     {
