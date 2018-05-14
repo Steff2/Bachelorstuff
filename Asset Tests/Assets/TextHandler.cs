@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TextHandler : MonoBehaviour {
     public Text CameraHelper;
-    public Image USCamera;
+    public RawImage USCamera;
 
 	// Use this for initialization
 	void Start () {

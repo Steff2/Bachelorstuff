@@ -48,7 +48,7 @@ public class NeedleController : MonoBehaviour {
             rb.MovePosition(transform.position - transform.forward * speed * Time.deltaTime);
         }
 
-        if(Input.GetKeyUp("space"))
+        if(Input.GetKeyUp(KeyCode.B))
         {
             var InstSeed = Instantiate(Seed);
             InstSeed.transform.position = transform.position;
