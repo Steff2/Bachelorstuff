@@ -10,6 +10,7 @@ public class NeedlePlacement : MonoBehaviour {
     public Projector Marker; ///The Object Projecting the Marker
     //public List<int> MarkerList; ///Marker counter with list.size and Elements contain Needle count
     public GameObject Needle; //The Needle Object
+    public Vector3 EntryDirection;
 
     [SerializeField]
     ///Range of position variation of the Marker
@@ -23,7 +24,7 @@ public class NeedlePlacement : MonoBehaviour {
 
         if (Physics.Raycast(Marker.transform.position, Marker.transform.forward, out hit))
         {
-            var EntryDirection = Tumor.transform.position - hit.point;
+            EntryDirection = Tumor.transform.position - hit.point;
             Needle.transform.position = hit.point - EntryDirection.normalized * 50;
             Needle.transform.LookAt(Tumor.transform);
             /*for (int i = 0; i < MarkerList[0]; i++)

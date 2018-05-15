@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour {
     ///Sets the position of the Camera
     void Start()
     {
-        transform.position = target.transform.position + new Vector3(-90, 0, 90);
+        transform.position = target.transform.position + new Vector3(-90, -30, 110);
     }
 
     //private void Update()

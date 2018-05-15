@@ -1,51 +1,60 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 ///Handles the movement of the needles
 public class NeedleController : MonoBehaviour {
     public float speed; ///<Adjustement of the forward/backward movement of the needle
 
     public GameObject Seed; ///<The Seed planted in the Tumor
 
-    private Rigidbody rb;///<The Rigidbody of the Needle
+    //private Rigidbody rb;///<The Rigidbody of the Needle
 
-    void Start()
+    public Slider SpeedSlider;
+
+/*    void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
-
+*/
     /**< Movement of the Needle, vertical and horizontal
     * The forward and backward movement speed can be adjusted through the variable 'speed'
     * Includes the feature of "planting" the seed */
     void Update () {
+
+        speed = SpeedSlider.value;
+
         if (Input.GetKey("left"))
         {
-            transform.Rotate(0, 0.25f, 0);
+            transform.Rotate(0, 1f, 0);
         }
 
         if (Input.GetKey("up"))
         {
-            transform.Rotate(0.25f, 0, 0);
+            transform.Rotate(1f, 0, 0);
         }
 
         if (Input.GetKey("right"))
         {
-            transform.Rotate(0, -0.25f, 0);
+            transform.Rotate(0, -1f, 0);
         }
 
         if (Input.GetKey("down"))
         {
-            transform.Rotate(-0.25f, 0, 0);
+            transform.Rotate(-1f, 0, 0);
         }
 
         if (Input.GetMouseButton(0))
         {
-            rb.MovePosition(transform.position + transform.forward * speed * Time.deltaTime);
+            transform.localPosition += transform.forward * speed * Time.deltaTime;
+            //rb.MovePosition(transform.position + transform.forward * speed * Time.deltaTime);
         }
 
         if (Input.GetMouseButton(1))
         {
-            rb.MovePosition(transform.position - transform.forward * speed * Time.deltaTime);
+            transform.localPosition -= transform.forward * speed * Time.deltaTime;
+            //rb.MovePosition(transform.position - transform.forward * speed * Time.deltaTime);
         }
 
         if(Input.GetKeyUp(KeyCode.B))
