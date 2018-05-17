@@ -4,7 +4,8 @@ using UnityEngine;
 /// <summary>
 /// Handles the placement of the markers and their corresponding needles
 /// </summary>
-public class NeedlePlacement : MonoBehaviour {
+public class NeedlePlacement : MonoBehaviour
+{
 
     public GameObject Tumor; //The tumor Object
     public Projector Marker; ///The Object Projecting the Marker
@@ -19,7 +20,8 @@ public class NeedlePlacement : MonoBehaviour {
     /**< Sets the Markers with adjustable Range and sets the corresponding Needles which amount per marker is changeable,
       *through the point of the Raycast hit with the Skin from the Projector
       *Needles here are facing the Marker only, for now */
-    void Start () {
+    void Start()
+    {
         RaycastHit hit;
 
         if (Physics.Raycast(Marker.transform.position, Marker.transform.forward, out hit))
@@ -27,6 +29,12 @@ public class NeedlePlacement : MonoBehaviour {
             EntryDirection = Tumor.transform.position - hit.point;
             Needle.transform.position = hit.point - EntryDirection.normalized * 50;
             Needle.transform.LookAt(Tumor.transform);
+            if (Physics.Raycast(Needle.transform.position, Needle.transform.forward, out hit))
+            {
+                Marker.transform.position = hit.point;
+                Marker.transform.localPosition += new Vector3(0, 0, -100);
+                //Marker.transform.localPosition += new Vector3(0, 0, 10);
+            }
             /*for (int i = 0; i < MarkerList[0]; i++)
             {
                 var Needle1 = Instantiate(Needle);
@@ -54,4 +62,9 @@ public class NeedlePlacement : MonoBehaviour {
         }*/
     }
 
+    void Update()
+    {
+        //Marker.transform.localPosition = new Vector3(Marker.transform.position.x, Needle.transform.position.y, Marker.transform.position.z)
+        
+    }
 }
