@@ -8,12 +8,14 @@ public class CameraSwitch : MonoBehaviour
     public Camera cam1; ///< The side camera view
     public Camera cam2; ///< The front camera view
 
+    ///Sets cam1 active and cam2 inactive
     void Start()
     {
         cam1.enabled = true;
         cam2.enabled = false;
     }
 
+    /// Switches the active stance of the cams through a button press from the player
     void Update()
     {
 

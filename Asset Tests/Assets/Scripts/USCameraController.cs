@@ -3,16 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 ///Handles the placing and movement of the side ultrasound camera
 public class USCameraController : MonoBehaviour {
-
+    /// <summary>
+    /// 
+    /// </summary>
     public Transform needle;
+    /// <summary>
+    /// 
+    /// </summary>
     public Transform tumor;
-    public Transform FixPoint; /**< Object in World Space to fixate one the two endpoints of the cameras to, to make it more accurate*/
+    /// Object in World Space to fixate one the two endpoints of the cameras to, to make it more accurate
+    public Transform FixPoint;
+    /// <summary>
+    /// 
+    /// </summary>
     public GameObject Marker;
-
+    /// <summary>
+    /// 
+    /// </summary>
     RaycastHit hit;
+    /// <summary>
+    /// 
+    /// </summary>
     Vector3 NeedleToFixpoint;
 
-    // Move and place the camera
+    /// Move and place the camera
     void Update () {
         if (Physics.Raycast(Marker.transform.position, Marker.transform.forward, out hit))
         {

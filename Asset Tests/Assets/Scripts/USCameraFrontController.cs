@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 ///Set the front view ultrasound camera and move it
 public class USCameraFrontController : MonoBehaviour {
-
+    /// <summary>
+    /// 
+    /// </summary>
     public Transform needle;
     
     /// Set the position of the camera to that of the needle 
