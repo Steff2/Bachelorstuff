@@ -38,7 +38,7 @@ public class NeedlePlacement : MonoBehaviour
         RaycastHit hit;
         Skin.tag = "Skin";
 
-        if (Physics.Raycast(Marker.transform.position, Marker.transform.forward, out hit///<The Hitpoint of a Raycast))
+        if (Physics.Raycast(Marker.transform.position, Marker.transform.forward, out hit))
         {
             EntryDirection = Tumor.transform.position - hit.point;
             Needle.transform.position = hit.point - EntryDirection.normalized * 50;
