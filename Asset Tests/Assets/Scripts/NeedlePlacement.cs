@@ -33,7 +33,7 @@ public class NeedlePlacement : MonoBehaviour
     /**< Sets the Markers with adjustable Range and sets the corresponding Needles which amount per marker is changeable,
       *through the point of the Raycast hit with the Skin from the Projector
       *Needles here are facing the Marker only, for now */
-    void Start()
+    /*void Start()
     {
         RaycastHit hit;
         Skin.tag = "Skin";
@@ -50,7 +50,7 @@ public class NeedlePlacement : MonoBehaviour
                 //Needle1.transform.position += new Vector3(Random.Range(10, 15), Random.Range(10, 15), 0);
                 Needle1.transform.LookAt(hit.transform);
             }*/
-        }
+        //}
         /*
         for (int i = 2; i < MarkerList.Count; i++)
         {
@@ -68,7 +68,7 @@ public class NeedlePlacement : MonoBehaviour
                 }
             }
         }*/
-    }
+    //}
 
     /**< Movement of the Needle, vertical and horizontal
 * The forward and backward movement speed can be adjusted through the variable 'speed'

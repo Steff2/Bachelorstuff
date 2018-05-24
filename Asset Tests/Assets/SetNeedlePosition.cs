@@ -4,8 +4,9 @@ public class SetNeedlePosition : State
 {
     public Camera Cam1;
     public GameObject Marker;
+    public GameObject needle;
 
-    public SetNeedlePosition(Character gameState) : base(gameState)
+    public SetNeedlePosition(GameState gameState) : base(gameState)
     {
     }
 
@@ -39,6 +40,6 @@ public class SetNeedlePosition : State
 
     public override void OnStateEnter()
     {
-
+        needle.SetActive(true);
     }
 }

@@ -32,7 +32,7 @@ public class Planning : State
 
     private Vector3 destination;
 
-    public Planning(Character gameState): base (gameState)
+    public Planning(GameState gameState): base (gameState)
     {
     }
 

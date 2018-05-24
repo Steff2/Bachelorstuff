@@ -1,11 +1,14 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class SetMarkerPosition : State
 {
     public Camera Cam1;
     public GameObject Marker;
 
-    public SetMarkerPosition(Character gameState) : base(gameState)
+    public SetMarkerPosition(GameState gameState) : base(gameState)
     {
     }
 
