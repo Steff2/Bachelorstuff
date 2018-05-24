@@ -22,9 +22,9 @@ public class TextHandler : MonoBehaviour {
     /// Initialize the active/inactive states of the different Texts
     /// </summary>
 	void Start () {
-        gameObject.GetComponent<Text>().enabled = true;
+        gameObject.GetComponent<Text>().enabled = false;
         CameraHelper.enabled = false;
-        USCamera.enabled = false;
+        USCamera.enabled = true;
 
 	}
 	
@@ -33,11 +33,11 @@ public class TextHandler : MonoBehaviour {
     /// </summary>
     void Update()
     {
-        if(Input.GetKeyUp(KeyCode.Space))
+        /*if(Input.GetKeyUp(KeyCode.Space))
         {
             gameObject.GetComponent<Text>().enabled = false;
             CameraHelper.enabled = true;
             USCamera.enabled = true;
-        }
+        }*/
     }
 }

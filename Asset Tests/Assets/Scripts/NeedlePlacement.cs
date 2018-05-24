@@ -119,8 +119,8 @@ public class NeedlePlacement : MonoBehaviour
     }
 
     ///Gets called when the object hits a trigger 
-    void OnTriggerEnter(Collider other)
+    /*void OnTriggerEnter(Collider other)
     {
          Marker.SetActive(false);
-    }
+    }*/
 }
