@@ -254,7 +254,19 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: '
+
+
+
+    Press W, A, S, D to position the Marker
+
+
+
+
+
+
+
+    Press B if you are finished to go to the Needle placing phase.'
 --- !u!222 &92641369
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1274,7 +1286,19 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: '
+
+
+    Press W, A, S, D to rotate the Ultrasound Camera
+
+
+
+
+
+
+
+
+    Press SPACE if you are finished, to go to the Marker placing phase.'
 --- !u!222 &1217208903
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1737,7 +1761,28 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 'Press W, A, S, D to move the needle in the 2D plane
+
+
+    Press Mouse 1 to move the needle forward
+
+
+    Press Mouse 2 to move the needle backward
+
+
+
+
+    Press Arrow Keys to rotate the needle
+
+
+
+
+
+
+
+
+
+    Press C to end the placing phase and enter the simulation.'
 --- !u!222 &1596258831
 CanvasRenderer:
   m_ObjectHideFlags: 0
