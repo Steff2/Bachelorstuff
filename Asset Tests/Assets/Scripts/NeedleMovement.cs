@@ -5,7 +5,7 @@ using UnityEngine.UI;
 /// <summary>
 /// Handles needle placement and its movement
 /// </summary>
-public class NeedlePlacement : MonoBehaviour
+public class NeedleMovement : MonoBehaviour
 {
 
     public GameObject Tumor; ///<The tumor Object

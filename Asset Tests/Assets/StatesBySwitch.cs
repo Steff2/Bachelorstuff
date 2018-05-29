@@ -45,6 +45,15 @@ public class StatesBySwitch : MonoBehaviour
     /// 
     /// </summary>
     public Text Needle_Placement_Text;
+    /// <summary>
+    /// 
+    /// </summary>
+    public GameObject CameraSkinPoint;
+    /// <summary>
+    /// 
+    /// </summary>
+    public NeedleMovement ascript;
+
     Vector3 NeedleToFixpoint;
 
 
@@ -76,12 +85,15 @@ public class StatesBySwitch : MonoBehaviour
                     Cam1.transform.position = FixPoint.position;
                     Cam1.transform.rotation = FixPoint.rotation;
                     Cam1.transform.localPosition = new Vector3(0, 0, -100f);
+
+                    CameraSkinPoint.transform.localPosition = new Vector3(-144f, 0, 100f);
+
                     //Cam1.transform.LookAt(FixPoint);
 
                     currentStateId = StateIds.Planning;
 
                     needle.SetActive(false);
-                    Marker.SetActive(false);
+                    Marker.SetActive(true);
                     Planning_Text.enabled = true;
                 }
                 break;
@@ -105,6 +117,8 @@ public class StatesBySwitch : MonoBehaviour
                 {
                     FixPoint.Rotate(1f, 0, 0);
                 }
+
+                Marker.transform.position = CameraSkinPoint.transform.position;
 
                 if (Input.GetKey(KeyCode.Space))
                 {
@@ -149,13 +163,17 @@ public class StatesBySwitch : MonoBehaviour
                 }
                 break;
             case StateIds.Enter_Set_Needle_Position_State:
+
+                needle.SetActive(true);
+
                 if (Physics.Raycast(Marker.transform.position, Marker.transform.forward, out hit))
                 {
                     var Normal_Hit_Vector = hit.normal.normalized;
                     needle.transform.position = hit.point;
-                    needle.transform.position += Normal_Hit_Vector * 50;
+                    needle.transform.LookAt(hit.point);
 
-                    needle.SetActive(true);
+                    Cylinder.transform.localPosition = new Vector3(0, 0, 60);
+
                 }
 
                 Needle_Placement_Text.enabled = true;
@@ -163,59 +181,32 @@ public class StatesBySwitch : MonoBehaviour
                 currentStateId = StateIds.SetNeedlePosition;
                 break;
             case StateIds.SetNeedlePosition:
-                if (Input.GetKey(KeyCode.A))
-                {
-                    Cylinder.transform.localPosition += new Vector3(-1f, 0, 0);
-                }
 
-                if (Input.GetKey(KeyCode.W))
+                if (Input.GetKey("left"))
                 {
-                    Cylinder.transform.localPosition += new Vector3(0, 1f, 0);
-                }
-
-                if (Input.GetKey(KeyCode.D))
-                {
-                    Cylinder.transform.localPosition += new Vector3(1f, 0, 0);
-                }
-
-                if (Input.GetKey(KeyCode.S))
-                {
-                    Cylinder.transform.localPosition += new Vector3(0, -1f, 0);
-                }
-
-                if (Input.GetKey("right"))
-                {
-                    Cylinder.transform.Rotate(1f, 0, 0);
+                    needle.transform.Rotate(0, -1f, 0);
                 }
 
                 if (Input.GetKey("up"))
                 {
-                    Cylinder.transform.Rotate(0, 0, 1f);
+                    needle.transform.Rotate(-1f, 0, 0);
                 }
 
-                if (Input.GetKey("left"))
+                if (Input.GetKey("right"))
                 {
-                    Cylinder.transform.Rotate(-1f, 0, 0);
+                    needle.transform.Rotate(0, 1f, 0);
                 }
 
                 if (Input.GetKey("down"))
                 {
-                    Cylinder.transform.Rotate(0, 0, -1f);
+                    needle.transform.Rotate(1f, 0, 0);
                 }
 
-                if (Input.GetMouseButton(0))
-                {
-                    needle.transform.localPosition += needle.transform.forward;
-                }
-
-                if (Input.GetMouseButton(1))
-                {
-                    needle.transform.localPosition -= needle.transform.forward;
-                }
                 if (Input.GetKey(KeyCode.Space))
                 {
                     Needle_Placement_Text.enabled = false;
                     currentStateId = StateIds.Game;
+                    ascript.enabled = true;
                 }
                 break;
 
