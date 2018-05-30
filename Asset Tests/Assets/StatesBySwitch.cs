@@ -120,7 +120,7 @@ public class StatesBySwitch : MonoBehaviour
 
                 Marker.transform.position = CameraSkinPoint.transform.position;
 
-                if (Input.GetKey(KeyCode.Space))
+                if (Input.GetKeyUp(KeyCode.Space))
                 {
                     currentStateId = StateIds.Enter_Set_Marker_Position_State;
                     Planning_Text.enabled = false;
@@ -155,7 +155,7 @@ public class StatesBySwitch : MonoBehaviour
                     Marker.transform.localPosition += new Vector3(0, -1f, 0);
                 }
 
-                if (Input.GetKey(KeyCode.B))
+                if (Input.GetKeyUp(KeyCode.Space))
                 {
                     currentStateId = StateIds.Enter_Set_Needle_Position_State;
 
@@ -187,7 +187,7 @@ public class StatesBySwitch : MonoBehaviour
                     needle.transform.Rotate(0, -1f, 0);
                 }
 
-                if (Input.GetKey("up"))
+                if (Input.GetKey("down"))
                 {
                     needle.transform.Rotate(-1f, 0, 0);
                 }
@@ -197,12 +197,12 @@ public class StatesBySwitch : MonoBehaviour
                     needle.transform.Rotate(0, 1f, 0);
                 }
 
-                if (Input.GetKey("down"))
+                if (Input.GetKey("up"))
                 {
                     needle.transform.Rotate(1f, 0, 0);
                 }
 
-                if (Input.GetKey(KeyCode.Space))
+                if (Input.GetKeyUp(KeyCode.Space))
                 {
                     Needle_Placement_Text.enabled = false;
                     currentStateId = StateIds.Game;

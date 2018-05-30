@@ -22,9 +22,9 @@ public class TextHandler : MonoBehaviour {
     /// Initialize the active/inactive states of the different Texts
     /// </summary>
 	void Start () {
-        gameObject.GetComponent<Text>().enabled = false;
+        //gameObject.GetComponent<Text>().enabled = false;
         CameraHelper.enabled = false;
-        USCamera.enabled = true;
+        //USCamera.enabled = true;
 
 	}
 	
