@@ -1,0 +1,111 @@
+\hypertarget{class_u_s_camera_controller}{}\section{U\+S\+Camera\+Controller Class Reference}
+\label{class_u_s_camera_controller}\index{U\+S\+Camera\+Controller@{U\+S\+Camera\+Controller}}
+
+
+Handles the placing and movement of the side ultrasound camera.  
+
+
+Inheritance diagram for U\+S\+Camera\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_u_s_camera_controller}
+\end{center}
+\end{figure}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Transform \mbox{\hyperlink{class_u_s_camera_controller_af5d70c6e1bfd979cf29077e49196467c}{needle}}
+\item 
+Transform \mbox{\hyperlink{class_u_s_camera_controller_aa88be26d544017db79b33460b4f4d237}{tumor}}
+\item 
+\mbox{\Hypertarget{class_u_s_camera_controller_a3bf8b6ab716db274659db65b21c97826}\label{class_u_s_camera_controller_a3bf8b6ab716db274659db65b21c97826}} 
+Transform \mbox{\hyperlink{class_u_s_camera_controller_a3bf8b6ab716db274659db65b21c97826}{Fix\+Point}}
+\begin{DoxyCompactList}\small\item\em Object in World Space to fixate one the two endpoints of the cameras to, to make it more accurate. \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_u_s_camera_controller_a0795683be0b0a4c6f0657cee69eaa1e3}{Marker}}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_u_s_camera_controller_a20fb7ef256409f212446dd6bb7073e7c}{Update}} ()
+\begin{DoxyCompactList}\small\item\em Move and place the camera. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Raycast\+Hit \mbox{\hyperlink{class_u_s_camera_controller_a940a5a86d9d76540cbad649d35f715a4}{hit}}
+\item 
+Vector3 \mbox{\hyperlink{class_u_s_camera_controller_a924a3ae2ab38ca9dad322da33fb5770f}{Needle\+To\+Fixpoint}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Handles the placing and movement of the side ultrasound camera. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_u_s_camera_controller_a20fb7ef256409f212446dd6bb7073e7c}\label{class_u_s_camera_controller_a20fb7ef256409f212446dd6bb7073e7c}} 
+\index{U\+S\+Camera\+Controller@{U\+S\+Camera\+Controller}!Update@{Update}}
+\index{Update@{Update}!U\+S\+Camera\+Controller@{U\+S\+Camera\+Controller}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void U\+S\+Camera\+Controller.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Move and place the camera. 
+
+Get the relative position by creating a plane with a vector from the needle to the tumor and a random different vector 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_u_s_camera_controller_a940a5a86d9d76540cbad649d35f715a4}\label{class_u_s_camera_controller_a940a5a86d9d76540cbad649d35f715a4}} 
+\index{U\+S\+Camera\+Controller@{U\+S\+Camera\+Controller}!hit@{hit}}
+\index{hit@{hit}!U\+S\+Camera\+Controller@{U\+S\+Camera\+Controller}}
+\subsubsection{\texorpdfstring{hit}{hit}}
+{\footnotesize\ttfamily Raycast\+Hit U\+S\+Camera\+Controller.\+hit\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+
+\mbox{\Hypertarget{class_u_s_camera_controller_a0795683be0b0a4c6f0657cee69eaa1e3}\label{class_u_s_camera_controller_a0795683be0b0a4c6f0657cee69eaa1e3}} 
+\index{U\+S\+Camera\+Controller@{U\+S\+Camera\+Controller}!Marker@{Marker}}
+\index{Marker@{Marker}!U\+S\+Camera\+Controller@{U\+S\+Camera\+Controller}}
+\subsubsection{\texorpdfstring{Marker}{Marker}}
+{\footnotesize\ttfamily Game\+Object U\+S\+Camera\+Controller.\+Marker}
+
+
+
+
+
+\mbox{\Hypertarget{class_u_s_camera_controller_af5d70c6e1bfd979cf29077e49196467c}\label{class_u_s_camera_controller_af5d70c6e1bfd979cf29077e49196467c}} 
+\index{U\+S\+Camera\+Controller@{U\+S\+Camera\+Controller}!needle@{needle}}
+\index{needle@{needle}!U\+S\+Camera\+Controller@{U\+S\+Camera\+Controller}}
+\subsubsection{\texorpdfstring{needle}{needle}}
+{\footnotesize\ttfamily Transform U\+S\+Camera\+Controller.\+needle}
+
+
+
+
+
+\mbox{\Hypertarget{class_u_s_camera_controller_a924a3ae2ab38ca9dad322da33fb5770f}\label{class_u_s_camera_controller_a924a3ae2ab38ca9dad322da33fb5770f}} 
+\index{U\+S\+Camera\+Controller@{U\+S\+Camera\+Controller}!Needle\+To\+Fixpoint@{Needle\+To\+Fixpoint}}
+\index{Needle\+To\+Fixpoint@{Needle\+To\+Fixpoint}!U\+S\+Camera\+Controller@{U\+S\+Camera\+Controller}}
+\subsubsection{\texorpdfstring{Needle\+To\+Fixpoint}{NeedleToFixpoint}}
+{\footnotesize\ttfamily Vector3 U\+S\+Camera\+Controller.\+Needle\+To\+Fixpoint\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+
+\mbox{\Hypertarget{class_u_s_camera_controller_aa88be26d544017db79b33460b4f4d237}\label{class_u_s_camera_controller_aa88be26d544017db79b33460b4f4d237}} 
+\index{U\+S\+Camera\+Controller@{U\+S\+Camera\+Controller}!tumor@{tumor}}
+\index{tumor@{tumor}!U\+S\+Camera\+Controller@{U\+S\+Camera\+Controller}}
+\subsubsection{\texorpdfstring{tumor}{tumor}}
+{\footnotesize\ttfamily Transform U\+S\+Camera\+Controller.\+tumor}
+
+
+
+
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Faiq Bakar/\+Bachelorstuff/\+Asset Tests/\+Assets/\+Scripts/U\+S\+Camera\+Controller.\+cs\end{DoxyCompactItemize}

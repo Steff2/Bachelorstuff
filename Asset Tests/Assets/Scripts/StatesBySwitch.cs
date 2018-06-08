@@ -34,15 +34,19 @@ public class StatesBySwitch : MonoBehaviour
     /// </summary>
     RaycastHit hit;
     /// <summary>
-    /// 
+    /// Helping text of the planning phase
     /// </summary>
     public Text Planning_Text;
     /// <summary>
-    /// 
+    /// Helping text of the Marking phase
     /// </summary>
     public Text Marking_Text;
     /// <summary>
-    /// 
+    /// Helping text for the beginning of the actual game after the States phase
+    /// </summary>
+    public Text Introduction_Text;
+    /// <summary>
+    /// Helping text of needle placement phase
     /// </summary>
     public Text Needle_Placement_Text;
     /// <summary>
@@ -50,45 +54,54 @@ public class StatesBySwitch : MonoBehaviour
     /// </summary>
     public GameObject CameraSkinPoint;
     /// <summary>
-    /// 
+    /// Script that gets disabled during this script
     /// </summary>
     public NeedleMovement ascript;
 
-    Vector3 NeedleToFixpoint;
-
-
+    /// <summary>
+    /// Handles the current states
+    /// </summary>
     private StateIds currentStateId;
 
+    /// <summary>
+    /// Toggles the texts inactive and enters the first phase
+    /// </summary>
     public void Start()
     {
         currentStateId = StateIds.Enter_Planning_State;
         Planning_Text.enabled = false;
         Marking_Text.enabled = false;
         Needle_Placement_Text.enabled = false;
+        Introduction_Text.enabled = false;
     }
 
-    private void Update()
+
+    /// <summary>
+    /// Necessary function for routine delay for the text at the final stage
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator CoUpdate()
+    {
+        yield return new WaitForSeconds(5);
+    }
+
+
+    /// <summary>
+    /// Handles all the phases
+    /// </summary>
+        private void Update()
     {
         switch (currentStateId)
         {
             case StateIds.Enter_Planning_State:
                 if (Physics.Raycast(Marker.transform.position, Marker.transform.forward, out hit))
                 {
-                    var NeedleToMark = needle.transform.forward - needle.transform.position;
-
-                    ///Get the relative position by creating a plane with a vector from the needle to the tumor and a random different vector
-                    NeedleToFixpoint = FixPoint.position - needle.transform.position;
-
-                    var PerpVect = Vector3.Cross(NeedleToFixpoint, NeedleToMark);
-                    PerpVect.Normalize();
 
                     Cam1.transform.position = FixPoint.position;
                     Cam1.transform.rotation = FixPoint.rotation;
                     Cam1.transform.localPosition = new Vector3(0, 0, -100f);
 
                     CameraSkinPoint.transform.localPosition = new Vector3(-144f, 0, 100f);
-
-                    //Cam1.transform.LookAt(FixPoint);
 
                     currentStateId = StateIds.Planning;
 
@@ -207,6 +220,11 @@ public class StatesBySwitch : MonoBehaviour
                     Needle_Placement_Text.enabled = false;
                     currentStateId = StateIds.Game;
                     ascript.enabled = true;
+                    Introduction_Text.enabled = true;
+                    if (Input.GetKeyUp(KeyCode.Space))
+                    {
+                        Introduction_Text.enabled = false;
+                    }
                 }
                 break;
 

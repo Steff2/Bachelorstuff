@@ -1352,6 +1352,8 @@ MonoBehaviour:
 
 
 
+    The red line and dot help you locate the Camera frame
+
 
 
 
@@ -1400,6 +1402,7 @@ MonoBehaviour:
   Cam1: {fileID: 620197355}
   Planning_Text: {fileID: 1217208902}
   Marking_Text: {fileID: 92641368}
+  Introduction_Text: {fileID: 1521849622}
   Needle_Placement_Text: {fileID: 1596258830}
   CameraSkinPoint: {fileID: 1415555547}
   ascript: {fileID: 1746083706}
@@ -1717,8 +1720,7 @@ MonoBehaviour:
     direction\n\n\n\n\n- Mouse 1: Moves the needle forward in the direction it is
     facing\n\n- Mouse 2: Moves the needle backwards of the direction it is facing\n\n(Adjust
     the speed of the movement with the slider on the top right corner)\n\n\n\n\n-
-    C: Switch Ultrasound Camera Perspective\t\t\t\n\n\n\n\n\n\n\nPress Spacebar to
-    close this helping screen"
+    B: Plant a seed\t\t\t\n\n\n\n\n\n\n\nPress Spacebar to close this helping screen"
 --- !u!222 &1521849623
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -1,0 +1,239 @@
+\hypertarget{class_states_by_switch}{}\section{States\+By\+Switch Class Reference}
+\label{class_states_by_switch}\index{States\+By\+Switch@{States\+By\+Switch}}
+
+
+Guides the player through the planning steps of the Simulation  
+
+
+Inheritance diagram for States\+By\+Switch\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_states_by_switch}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_states_by_switch_a21dce0c656d329bd4890e0ec07c6b8c9}{Start}} ()
+\begin{DoxyCompactList}\small\item\em Toggles the texts inactive and enters the first phase \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{class_states_by_switch_ac45169b7b1eeeeec3983d4c9109fb144}{needle}}
+\item 
+Transform \mbox{\hyperlink{class_states_by_switch_a22ee2b11d00f659a78da32cec049de22}{tumor}}
+\item 
+\mbox{\Hypertarget{class_states_by_switch_a3f091084e5763ac5398db2e400b3e4db}\label{class_states_by_switch_a3f091084e5763ac5398db2e400b3e4db}} 
+Transform \mbox{\hyperlink{class_states_by_switch_a3f091084e5763ac5398db2e400b3e4db}{Fix\+Point}}
+\begin{DoxyCompactList}\small\item\em Object in World Space to fixate one the two endpoints of the cameras to, to make it more accurate. \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_states_by_switch_a6350a4b4edd29eab4d2f1a00ce3890dd}{Marker}}
+\item 
+Game\+Object \mbox{\hyperlink{class_states_by_switch_a3b340adadbafc43f0679c3270fb84a07}{Cylinder}}
+\item 
+Camera \mbox{\hyperlink{class_states_by_switch_aa48de7de6af496872584ba82e82b20eb}{Cam1}}
+\item 
+Text \mbox{\hyperlink{class_states_by_switch_ac7c8a7d50ecf021994bc930d51cbccb2}{Planning\+\_\+\+Text}}
+\begin{DoxyCompactList}\small\item\em Helping text of the planning phase \end{DoxyCompactList}\item 
+Text \mbox{\hyperlink{class_states_by_switch_a010d70d2a27cdd261b50ad93dfa4c6d4}{Marking\+\_\+\+Text}}
+\begin{DoxyCompactList}\small\item\em Helping text of the Marking phase \end{DoxyCompactList}\item 
+Text \mbox{\hyperlink{class_states_by_switch_a46b23045719e76ba9455fa84d2c4613a}{Introduction\+\_\+\+Text}}
+\begin{DoxyCompactList}\small\item\em Helping text for the beginning of the actual game after the States phase \end{DoxyCompactList}\item 
+Text \mbox{\hyperlink{class_states_by_switch_a36ebc107be9b12cb8a97bf1460423000}{Needle\+\_\+\+Placement\+\_\+\+Text}}
+\begin{DoxyCompactList}\small\item\em Helping text of needle placement phase \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_states_by_switch_a2a073b0e193c0609b5c3681434b4f24e}{Camera\+Skin\+Point}}
+\item 
+Needle\+Movement \mbox{\hyperlink{class_states_by_switch_a6b08cab5dde267f953387e4885318be4}{ascript}}
+\begin{DoxyCompactList}\small\item\em Script that gets disabled during this script \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+I\+Enumerator \mbox{\hyperlink{class_states_by_switch_abdcace6428d6394da78e41b19483e813}{Co\+Update}} ()
+\begin{DoxyCompactList}\small\item\em Necessary function for routine delay for the text at the final stage \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_states_by_switch_adb2e0b871f32a901e5a9a4554cd3f797}{Update}} ()
+\begin{DoxyCompactList}\small\item\em Handles all the phases \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Raycast\+Hit \mbox{\hyperlink{class_states_by_switch_a541dfd2e3ba0cdfa1a33656455a2086f}{hit}}
+\item 
+State\+Ids \mbox{\hyperlink{class_states_by_switch_a6c039db026faf623438de4774163cf64}{current\+State\+Id}}
+\begin{DoxyCompactList}\small\item\em Handles the current states \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Guides the player through the planning steps of the Simulation 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_states_by_switch_abdcace6428d6394da78e41b19483e813}\label{class_states_by_switch_abdcace6428d6394da78e41b19483e813}} 
+\index{States\+By\+Switch@{States\+By\+Switch}!Co\+Update@{Co\+Update}}
+\index{Co\+Update@{Co\+Update}!States\+By\+Switch@{States\+By\+Switch}}
+\subsubsection{\texorpdfstring{Co\+Update()}{CoUpdate()}}
+{\footnotesize\ttfamily I\+Enumerator States\+By\+Switch.\+Co\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Necessary function for routine delay for the text at the final stage 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_states_by_switch_a21dce0c656d329bd4890e0ec07c6b8c9}\label{class_states_by_switch_a21dce0c656d329bd4890e0ec07c6b8c9}} 
+\index{States\+By\+Switch@{States\+By\+Switch}!Start@{Start}}
+\index{Start@{Start}!States\+By\+Switch@{States\+By\+Switch}}
+\subsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void States\+By\+Switch.\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Toggles the texts inactive and enters the first phase 
+
+\mbox{\Hypertarget{class_states_by_switch_adb2e0b871f32a901e5a9a4554cd3f797}\label{class_states_by_switch_adb2e0b871f32a901e5a9a4554cd3f797}} 
+\index{States\+By\+Switch@{States\+By\+Switch}!Update@{Update}}
+\index{Update@{Update}!States\+By\+Switch@{States\+By\+Switch}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void States\+By\+Switch.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Handles all the phases 
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_states_by_switch_a6b08cab5dde267f953387e4885318be4}\label{class_states_by_switch_a6b08cab5dde267f953387e4885318be4}} 
+\index{States\+By\+Switch@{States\+By\+Switch}!ascript@{ascript}}
+\index{ascript@{ascript}!States\+By\+Switch@{States\+By\+Switch}}
+\subsubsection{\texorpdfstring{ascript}{ascript}}
+{\footnotesize\ttfamily Needle\+Movement States\+By\+Switch.\+ascript}
+
+
+
+Script that gets disabled during this script 
+
+\mbox{\Hypertarget{class_states_by_switch_aa48de7de6af496872584ba82e82b20eb}\label{class_states_by_switch_aa48de7de6af496872584ba82e82b20eb}} 
+\index{States\+By\+Switch@{States\+By\+Switch}!Cam1@{Cam1}}
+\index{Cam1@{Cam1}!States\+By\+Switch@{States\+By\+Switch}}
+\subsubsection{\texorpdfstring{Cam1}{Cam1}}
+{\footnotesize\ttfamily Camera States\+By\+Switch.\+Cam1}
+
+
+
+
+
+\mbox{\Hypertarget{class_states_by_switch_a2a073b0e193c0609b5c3681434b4f24e}\label{class_states_by_switch_a2a073b0e193c0609b5c3681434b4f24e}} 
+\index{States\+By\+Switch@{States\+By\+Switch}!Camera\+Skin\+Point@{Camera\+Skin\+Point}}
+\index{Camera\+Skin\+Point@{Camera\+Skin\+Point}!States\+By\+Switch@{States\+By\+Switch}}
+\subsubsection{\texorpdfstring{Camera\+Skin\+Point}{CameraSkinPoint}}
+{\footnotesize\ttfamily Game\+Object States\+By\+Switch.\+Camera\+Skin\+Point}
+
+
+
+
+
+\mbox{\Hypertarget{class_states_by_switch_a6c039db026faf623438de4774163cf64}\label{class_states_by_switch_a6c039db026faf623438de4774163cf64}} 
+\index{States\+By\+Switch@{States\+By\+Switch}!current\+State\+Id@{current\+State\+Id}}
+\index{current\+State\+Id@{current\+State\+Id}!States\+By\+Switch@{States\+By\+Switch}}
+\subsubsection{\texorpdfstring{current\+State\+Id}{currentStateId}}
+{\footnotesize\ttfamily State\+Ids States\+By\+Switch.\+current\+State\+Id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Handles the current states 
+
+\mbox{\Hypertarget{class_states_by_switch_a3b340adadbafc43f0679c3270fb84a07}\label{class_states_by_switch_a3b340adadbafc43f0679c3270fb84a07}} 
+\index{States\+By\+Switch@{States\+By\+Switch}!Cylinder@{Cylinder}}
+\index{Cylinder@{Cylinder}!States\+By\+Switch@{States\+By\+Switch}}
+\subsubsection{\texorpdfstring{Cylinder}{Cylinder}}
+{\footnotesize\ttfamily Game\+Object States\+By\+Switch.\+Cylinder}
+
+
+
+
+
+\mbox{\Hypertarget{class_states_by_switch_a541dfd2e3ba0cdfa1a33656455a2086f}\label{class_states_by_switch_a541dfd2e3ba0cdfa1a33656455a2086f}} 
+\index{States\+By\+Switch@{States\+By\+Switch}!hit@{hit}}
+\index{hit@{hit}!States\+By\+Switch@{States\+By\+Switch}}
+\subsubsection{\texorpdfstring{hit}{hit}}
+{\footnotesize\ttfamily Raycast\+Hit States\+By\+Switch.\+hit\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+
+\mbox{\Hypertarget{class_states_by_switch_a46b23045719e76ba9455fa84d2c4613a}\label{class_states_by_switch_a46b23045719e76ba9455fa84d2c4613a}} 
+\index{States\+By\+Switch@{States\+By\+Switch}!Introduction\+\_\+\+Text@{Introduction\+\_\+\+Text}}
+\index{Introduction\+\_\+\+Text@{Introduction\+\_\+\+Text}!States\+By\+Switch@{States\+By\+Switch}}
+\subsubsection{\texorpdfstring{Introduction\+\_\+\+Text}{Introduction\_Text}}
+{\footnotesize\ttfamily Text States\+By\+Switch.\+Introduction\+\_\+\+Text}
+
+
+
+Helping text for the beginning of the actual game after the States phase 
+
+\mbox{\Hypertarget{class_states_by_switch_a6350a4b4edd29eab4d2f1a00ce3890dd}\label{class_states_by_switch_a6350a4b4edd29eab4d2f1a00ce3890dd}} 
+\index{States\+By\+Switch@{States\+By\+Switch}!Marker@{Marker}}
+\index{Marker@{Marker}!States\+By\+Switch@{States\+By\+Switch}}
+\subsubsection{\texorpdfstring{Marker}{Marker}}
+{\footnotesize\ttfamily Game\+Object States\+By\+Switch.\+Marker}
+
+
+
+
+
+\mbox{\Hypertarget{class_states_by_switch_a010d70d2a27cdd261b50ad93dfa4c6d4}\label{class_states_by_switch_a010d70d2a27cdd261b50ad93dfa4c6d4}} 
+\index{States\+By\+Switch@{States\+By\+Switch}!Marking\+\_\+\+Text@{Marking\+\_\+\+Text}}
+\index{Marking\+\_\+\+Text@{Marking\+\_\+\+Text}!States\+By\+Switch@{States\+By\+Switch}}
+\subsubsection{\texorpdfstring{Marking\+\_\+\+Text}{Marking\_Text}}
+{\footnotesize\ttfamily Text States\+By\+Switch.\+Marking\+\_\+\+Text}
+
+
+
+Helping text of the Marking phase 
+
+\mbox{\Hypertarget{class_states_by_switch_ac45169b7b1eeeeec3983d4c9109fb144}\label{class_states_by_switch_ac45169b7b1eeeeec3983d4c9109fb144}} 
+\index{States\+By\+Switch@{States\+By\+Switch}!needle@{needle}}
+\index{needle@{needle}!States\+By\+Switch@{States\+By\+Switch}}
+\subsubsection{\texorpdfstring{needle}{needle}}
+{\footnotesize\ttfamily Game\+Object States\+By\+Switch.\+needle}
+
+
+
+
+
+\mbox{\Hypertarget{class_states_by_switch_a36ebc107be9b12cb8a97bf1460423000}\label{class_states_by_switch_a36ebc107be9b12cb8a97bf1460423000}} 
+\index{States\+By\+Switch@{States\+By\+Switch}!Needle\+\_\+\+Placement\+\_\+\+Text@{Needle\+\_\+\+Placement\+\_\+\+Text}}
+\index{Needle\+\_\+\+Placement\+\_\+\+Text@{Needle\+\_\+\+Placement\+\_\+\+Text}!States\+By\+Switch@{States\+By\+Switch}}
+\subsubsection{\texorpdfstring{Needle\+\_\+\+Placement\+\_\+\+Text}{Needle\_Placement\_Text}}
+{\footnotesize\ttfamily Text States\+By\+Switch.\+Needle\+\_\+\+Placement\+\_\+\+Text}
+
+
+
+Helping text of needle placement phase 
+
+\mbox{\Hypertarget{class_states_by_switch_ac7c8a7d50ecf021994bc930d51cbccb2}\label{class_states_by_switch_ac7c8a7d50ecf021994bc930d51cbccb2}} 
+\index{States\+By\+Switch@{States\+By\+Switch}!Planning\+\_\+\+Text@{Planning\+\_\+\+Text}}
+\index{Planning\+\_\+\+Text@{Planning\+\_\+\+Text}!States\+By\+Switch@{States\+By\+Switch}}
+\subsubsection{\texorpdfstring{Planning\+\_\+\+Text}{Planning\_Text}}
+{\footnotesize\ttfamily Text States\+By\+Switch.\+Planning\+\_\+\+Text}
+
+
+
+Helping text of the planning phase 
+
+\mbox{\Hypertarget{class_states_by_switch_a22ee2b11d00f659a78da32cec049de22}\label{class_states_by_switch_a22ee2b11d00f659a78da32cec049de22}} 
+\index{States\+By\+Switch@{States\+By\+Switch}!tumor@{tumor}}
+\index{tumor@{tumor}!States\+By\+Switch@{States\+By\+Switch}}
+\subsubsection{\texorpdfstring{tumor}{tumor}}
+{\footnotesize\ttfamily Transform States\+By\+Switch.\+tumor}
+
+
+
+
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Faiq Bakar/\+Bachelorstuff/\+Asset Tests/\+Assets/\+Scripts/States\+By\+Switch.\+cs\end{DoxyCompactItemize}

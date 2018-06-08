@@ -1,0 +1,79 @@
+\hypertarget{class_needle_placement}{}\section{Needle\+Placement Class Reference}
+\label{class_needle_placement}\index{Needle\+Placement@{Needle\+Placement}}
+
+
+Handles needle placement and its movement  
+
+
+Inheritance diagram for Needle\+Placement\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_needle_placement}
+\end{center}
+\end{figure}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_needle_placement_a255e5f96de6f004c3c3949e32a0d788b}\label{class_needle_placement_a255e5f96de6f004c3c3949e32a0d788b}} 
+Game\+Object \mbox{\hyperlink{class_needle_placement_a255e5f96de6f004c3c3949e32a0d788b}{Tumor}}
+\begin{DoxyCompactList}\small\item\em The tumor Object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_needle_placement_a7d40ce86efce0861ec0692f40a108557}\label{class_needle_placement_a7d40ce86efce0861ec0692f40a108557}} 
+Game\+Object \mbox{\hyperlink{class_needle_placement_a7d40ce86efce0861ec0692f40a108557}{Marker}}
+\begin{DoxyCompactList}\small\item\em The Object Projecting the Marker. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_needle_placement_a67cfbeeffd6a697da4e85b01c0d8f6d4}\label{class_needle_placement_a67cfbeeffd6a697da4e85b01c0d8f6d4}} 
+Game\+Object \mbox{\hyperlink{class_needle_placement_a67cfbeeffd6a697da4e85b01c0d8f6d4}{Needle}}
+\begin{DoxyCompactList}\small\item\em The Needle Object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_needle_placement_a9c357a53dd68e7546b8fdd0fd7a3266c}\label{class_needle_placement_a9c357a53dd68e7546b8fdd0fd7a3266c}} 
+Game\+Object \mbox{\hyperlink{class_needle_placement_a9c357a53dd68e7546b8fdd0fd7a3266c}{Skin}}
+\begin{DoxyCompactList}\small\item\em The Skin Object for initializing its tag for collision compare. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_needle_placement_a3f894880c0984ed43968bacf4f4dc9b4}\label{class_needle_placement_a3f894880c0984ed43968bacf4f4dc9b4}} 
+Game\+Object \mbox{\hyperlink{class_needle_placement_a3f894880c0984ed43968bacf4f4dc9b4}{Seed}}
+\begin{DoxyCompactList}\small\item\em The Seed planted in the Tumor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_needle_placement_a4cd592ecc15d8cbdf2ce7acb03304ed9}\label{class_needle_placement_a4cd592ecc15d8cbdf2ce7acb03304ed9}} 
+float \mbox{\hyperlink{class_needle_placement_a4cd592ecc15d8cbdf2ce7acb03304ed9}{speed}}
+\begin{DoxyCompactList}\small\item\em Adjustement of the forward/backward movement of the needle. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_needle_placement_ad5bd8d475f32a2ad703acfb321f39932}\label{class_needle_placement_ad5bd8d475f32a2ad703acfb321f39932}} 
+Slider \mbox{\hyperlink{class_needle_placement_ad5bd8d475f32a2ad703acfb321f39932}{Speed\+Slider}}
+\begin{DoxyCompactList}\small\item\em The adjustable Slider in the top right of the game screen. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_needle_placement_aae529bd91f416f60c95f465e19e7445a}\label{class_needle_placement_aae529bd91f416f60c95f465e19e7445a}} 
+Vector3 \mbox{\hyperlink{class_needle_placement_aae529bd91f416f60c95f465e19e7445a}{Entry\+Direction}}
+\begin{DoxyCompactList}\small\item\em The Direction from the Skin to the Tumor the needle is facing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_needle_placement_ae55a927284439c04bf27f75bec13b587}{Start}} ()
+\begin{DoxyCompactList}\small\item\em Range of position variation of the Marker. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_needle_placement_aa41fc424e416e7bfff4ff32a0a95acc1}{Update}} ()
+\item 
+\mbox{\Hypertarget{class_needle_placement_aaf954884073c3f9fd9f13641aa0400cf}\label{class_needle_placement_aaf954884073c3f9fd9f13641aa0400cf}} 
+void \mbox{\hyperlink{class_needle_placement_aaf954884073c3f9fd9f13641aa0400cf}{On\+Trigger\+Enter}} (Collider other)
+\begin{DoxyCompactList}\small\item\em Gets called when the object hits a trigger. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Handles needle placement and its movement 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_needle_placement_ae55a927284439c04bf27f75bec13b587}\label{class_needle_placement_ae55a927284439c04bf27f75bec13b587}} 
+\index{Needle\+Placement@{Needle\+Placement}!Start@{Start}}
+\index{Start@{Start}!Needle\+Placement@{Needle\+Placement}}
+\subsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Needle\+Placement.\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Range of position variation of the Marker. 
+
+$<$ Sets the Markers with adjustable Range and sets the corresponding Needles which amount per marker is changeable, through the point of the Raycast hit with the Skin from the Projector Needles here are facing the Marker only, for now\+Movement of the Needle, vertical and horizontal The forward and backward movement speed can be adjusted through the variable \textquotesingle{}speed\textquotesingle{} Includes the feature of \char`\"{}planting\char`\"{} the seed $<$The Hitpoint of a Raycast)) \mbox{\Hypertarget{class_needle_placement_aa41fc424e416e7bfff4ff32a0a95acc1}\label{class_needle_placement_aa41fc424e416e7bfff4ff32a0a95acc1}} 
+\index{Needle\+Placement@{Needle\+Placement}!Update@{Update}}
+\index{Update@{Update}!Needle\+Placement@{Needle\+Placement}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Needle\+Placement.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+The Instatiated Seed 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Faiq Bakar/\+Bachelorstuff/\+Asset Tests/\+Assets/\+Scripts/Needle\+Placement.\+cs\end{DoxyCompactItemize}
