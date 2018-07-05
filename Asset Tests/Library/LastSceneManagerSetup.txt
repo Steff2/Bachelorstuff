@@ -1,4 +1,4 @@
 sceneSetups:
-- path: "Assets/_Scene/Brachytherapy_Nicht_F\xFCr_Pr\xE4sentation.unity"
+- path: Assets/_Scene/RadarChart.unity
   isLoaded: 1
   isActive: 1
