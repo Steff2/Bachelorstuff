@@ -15,6 +15,6 @@ public class US_Device_Movement : MonoBehaviour
     void Update()
     {
         transform.position = toFollow.position - offset;
-        //transform.rotation = toFollow.rotation;
+        transform.rotation = toFollow.rotation;
     }
 }
