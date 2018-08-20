@@ -7,21 +7,13 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
 
     public Transform target;///< The Object the camera is fixated on
+    public Transform tumorPoint;
 
     ///Sets the position of the Camera
-    void Start()
-    {
-        transform.position = target.transform.position + new Vector3(-90, -30, 110);
+    void Update()
+    {        
+        Vector3 positionVector = tumorPoint.position - target.position;
+        transform.position = target.position - 100 * positionVector.normalized;
+        gameObject.transform.LookAt(target);
     }
-
-    //private void Update()
-    //{
-
-    //    float xAxisValue = Input.GetAxis("Horizontal");
-    //    float zAxisValue = Input.GetAxis("Vertical");
-    //    if (Camera.current != null)
-    //    {
-    //        Camera.current.transform.Translate(new Vector3(xAxisValue, 0.0f, zAxisValue));
-    //    }
-    //}
 }
