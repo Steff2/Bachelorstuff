@@ -14,6 +14,7 @@ public class CameraController : MonoBehaviour {
     {        
         Vector3 positionVector = tumorPoint.position - target.position;
         transform.position = target.position - 100 * positionVector.normalized;
+        transform.position += new Vector3(0, 5, 0);
         gameObject.transform.LookAt(target);
     }
 }

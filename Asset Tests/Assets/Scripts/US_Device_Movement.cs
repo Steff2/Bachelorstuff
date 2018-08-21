@@ -5,6 +5,9 @@ using UnityEngine;
 public class US_Device_Movement : MonoBehaviour
 {
 
+    Vector3 After_Collision_Transform;
+    bool collision = false;
+
     public Transform toFollow;
     private Vector3 offset;
 
@@ -14,7 +17,10 @@ public class US_Device_Movement : MonoBehaviour
     }
     void Update()
     {
-        transform.position = toFollow.position - offset;
-        transform.rotation = toFollow.rotation;
-    }
+        if (collision == false)
+        {
+            transform.position = toFollow.position - offset;
+            transform.rotation = toFollow.rotation;
+        }
+
 }

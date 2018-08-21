@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class OnContactFreeze : MonoBehaviour {
 
-
+    Transform After_Collision_Transform;
 
     void OnCollisionEnter(Collision col)
     {
-        Debug.Log("Hello");
+
         if (col.gameObject.CompareTag("Skin"))
         {
-            gameObject.GetComponent<US_Device_Movement>().enabled = false;
+            Debug.Log("Hello");
+            After_Collision_Transform.position = gameObject.transform.position;
+
+            GetComponent<US_Device_Movement>().enabled = false;
+
+            gameObject.transform.position = After_Collision_Transform.position;
         }
 
     }

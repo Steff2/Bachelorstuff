@@ -49,7 +49,7 @@ public class EntrypointPosition : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        
             if(Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 position_counter--;
@@ -75,14 +75,14 @@ public class EntrypointPosition : MonoBehaviour {
 
                 if (position_counter == 3)
                 {
-                    gameObject.transform.position = entryPoint3.transform.position + 30 * third_point_vector.normalized;
+                    gameObject.transform.position = entryPoint3.transform.position - 10 * third_point_vector.normalized;
                     gameObject.transform.LookAt(tumorPoint.transform.position);
                     gameObject.transform.Rotate(-90, 0, 0);
                 }
 
                 if (position_counter == 4)
                 {
-                    gameObject.transform.position = entryPoint4.transform.position + 30 * fourth_point_vector.normalized;
+                    gameObject.transform.position = entryPoint4.transform.position - 10 * fourth_point_vector.normalized;
                     gameObject.transform.LookAt(tumorPoint.transform.position);
                     gameObject.transform.Rotate(-90, 0, 0);
                 }
@@ -120,14 +120,14 @@ public class EntrypointPosition : MonoBehaviour {
 
                 if (position_counter == 3)
                 {
-                    gameObject.transform.position = entryPoint3.transform.position + 30 * third_point_vector.normalized;
+                    gameObject.transform.position = entryPoint3.transform.position - 10 * third_point_vector.normalized;
                     gameObject.transform.LookAt(tumorPoint.transform.position);
                     gameObject.transform.Rotate(-90, 0, 0);
                 }
 
                 if (position_counter == 4)
                 {
-                    gameObject.transform.position = entryPoint4.transform.position + 30 * fourth_point_vector.normalized;
+                    gameObject.transform.position = entryPoint4.transform.position - 10 * fourth_point_vector.normalized;
                     gameObject.transform.LookAt(tumorPoint.transform.position);
                     gameObject.transform.Rotate(-90, 0, 0);
                 }
@@ -146,7 +146,7 @@ public class EntrypointPosition : MonoBehaviour {
                 {
                     ren = needle1.GetComponent<Renderer>();
                     mat = ren.materials;
-                    mat[0].color = Color.blue;
+                    mat[0].color = Color.yellow;
                     OP_Plan1.SetActive(true);
                 }
 
@@ -154,7 +154,7 @@ public class EntrypointPosition : MonoBehaviour {
                 {
                     ren = needle2.GetComponent<Renderer>();
                     mat = ren.materials;
-                    mat[0].color = Color.blue;
+                    mat[0].color = Color.yellow;
                     OP_Plan2.SetActive(true);
                 }
 
@@ -162,7 +162,7 @@ public class EntrypointPosition : MonoBehaviour {
                 {
                     ren = needle3.GetComponent<Renderer>();
                     mat = ren.materials;
-                    mat[0].color = Color.blue;
+                    mat[0].color = Color.yellow;
                     OP_Plan3.SetActive(true);
                 }
 
@@ -170,7 +170,7 @@ public class EntrypointPosition : MonoBehaviour {
                 {
                     ren = needle4.GetComponent<Renderer>();
                     mat = ren.materials;
-                    mat[0].color = Color.blue;
+                    mat[0].color = Color.yellow;
                     OP_Plan4.SetActive(true);
                 }
 
@@ -178,11 +178,16 @@ public class EntrypointPosition : MonoBehaviour {
                 {
                     ren = needle5.GetComponent<Renderer>();
                     mat = ren.materials;
-                    mat[0].color = Color.blue;
+                    mat[0].color = Color.yellow;
                     OP_Plan5.SetActive(true);
                 }
 
+            gameObject.transform.position = new Vector3(-25, -20, -570);
+            Quaternion desiredRotation = Quaternion.Euler(90, 90, 0);
+            gameObject.transform.rotation = desiredRotation;
+
             GameObject.Find("ScriptManager").GetComponent<Needle_Movement>().enabled = true;
+            gameObject.GetComponent<EntrypointPosition>().enabled = false;
             }
 
     }
