@@ -22,5 +22,5 @@ public class US_Device_Movement : MonoBehaviour
             transform.position = toFollow.position - offset;
             transform.rotation = toFollow.rotation;
         }
-
+    }
 }

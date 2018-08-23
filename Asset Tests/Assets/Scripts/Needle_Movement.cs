@@ -19,9 +19,13 @@ public class Needle_Movement : MonoBehaviour
     /// <summary>
     /// Toggles the texts inactive and enters the first phase
     /// </summary>
+    public GameObject seed;
+
+    Vector3 Relative_Needle_Vector;
+
     public void Start()
     {
-
+        Relative_Needle_Vector = needle.transform.position - Cylinder.transform.position;
     }
 
     /// <summary>
@@ -78,5 +82,10 @@ public class Needle_Movement : MonoBehaviour
             {
                 needle.transform.localPosition += needle.transform.up * 10 * Time.deltaTime;
             }
+        if (Input.GetKeyUp(KeyCode.B))
+        {
+            var Seed = Instantiate(seed);
+            Seed.transform.position = Cylinder.transform.position + 50 * Relative_Needle_Vector.normalized + new Vector3 (-0.79f,-1.4f,-7.6f);
         }
     }
+}
