@@ -9,35 +9,40 @@ using UnityEngine;
 /// </summary>
 public class TextHandler : MonoBehaviour {
 
-    /// <summary>
-    /// Helping text above the Ultrasound image
-    /// </summary>
-    public Text CameraHelper;
-    /// <summary>
-    /// 
-    /// </summary>
-    public RawImage USCamera;
+    bool toggle = false;
 
+    public GameObject PlanText;
 	/// <summary>
     /// Initialize the active/inactive states of the different Texts
     /// </summary>
 	void Start () {
-        //gameObject.GetComponent<Text>().enabled = false;
-        CameraHelper.enabled = false;
-        //USCamera.enabled = true;
 
-	}
+        PlanText.GetComponent<Text>().enabled = true;
+        gameObject.GetComponent<Text>().enabled = false;
+
+    }
 	
     /// <summary>
     /// Switches Texts and image after a button press from the player
     /// </summary>
     void Update()
     {
-        /*if(Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            PlanText.GetComponent<Text>().enabled = false;
+            gameObject.GetComponent<Text>().enabled = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Tab) && toggle == true)
+        {
+            gameObject.GetComponent<Text>().enabled = true;
+            toggle = false;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Tab) && toggle == false)
         {
             gameObject.GetComponent<Text>().enabled = false;
-            CameraHelper.enabled = true;
-            USCamera.enabled = true;
-        }*/
+            toggle = true;
+        }
     }
 }

@@ -55,22 +55,22 @@ public class Needle_Movement : MonoBehaviour
 
         if (Input.GetKey("w"))
             {
-                Cylinder.transform.localPosition += new Vector3(0,0,1) * 2;
+                Cylinder.transform.localPosition -= new Vector3(0,0,1f) * 2;
             }
 
         if (Input.GetKey("a"))
             {
-                Cylinder.transform.localPosition += new Vector3(-1f, 0, 0) * 2;
+                Cylinder.transform.localPosition -= new Vector3(-1f, 0, 0) * 2;
             }
 
         if (Input.GetKey("s"))
             {
-                Cylinder.transform.localPosition -= new Vector3(0, 0, 1) * 2;
+                Cylinder.transform.localPosition += new Vector3(0, 0, 1) * 2;
             }
 
         if (Input.GetKey("d"))
             {
-                Cylinder.transform.localPosition += new Vector3(1f, 0, 0) * 2;
+                Cylinder.transform.localPosition -= new Vector3(1f, 0, 0) * 2;
             }
 
         if (Input.GetMouseButton(0))
