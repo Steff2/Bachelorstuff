@@ -36,7 +36,6 @@ public class EntrypointPosition : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        GameObject.Find("ScriptManager").GetComponent<Needle_Movement>().enabled = false;
         position_counter = 1;
 
         first_point_vector = entryPoint1.transform.position - tumorPoint.transform.position;
@@ -186,7 +185,6 @@ public class EntrypointPosition : MonoBehaviour {
             Quaternion desiredRotation = Quaternion.Euler(90, 90, 0);
             gameObject.transform.rotation = desiredRotation;
 
-            GameObject.Find("ScriptManager").GetComponent<Needle_Movement>().enabled = true;
             gameObject.GetComponent<EntrypointPosition>().enabled = false;
             }
 
