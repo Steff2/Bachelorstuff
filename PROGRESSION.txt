@@ -1,0 +1,14 @@
+Had struggles with the Models due to Unity's coordinate system. Solved by using the matlab converter to .obj
+
+Initial thought was to only use predefined Needleentry points and let the surgeon choose which one to follow.
+The idea was to have a window of the end position in the corner, for the surgeon to watch at. The Needle points were provided by Johanna Stratemeier's Masters projects algorithm.
+
+Changed that to be optional and instead have no guidance for the surgeon.
+
+Also Changed the traverse of the US device, to stick to the skin. Added trajectory in the US window.
+
+Changed main screen layout to provide space for the US and the Helping Texts.
+
+Struggle with Fullsurface, since Unity only supports 255 polygons with convex objects. Model with 10% of vertices still has more.
+
+Decided to split the mesh in patches and make each individual patch convex. Using unity takes way too long to iterate all vertices (reason unkown) switching to external scripting.

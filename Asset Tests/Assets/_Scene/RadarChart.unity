@@ -905,9 +905,9 @@ MonoBehaviour:
   - 0.8
   - 1
   startAngleDegree: 0
-  outerColor: {r: 1, g: 1, b: 1, a: 1}
+  outerColor: {r: 0.9338235, g: 0, b: 0, a: 1}
   outerRatio: 1
-  innerColor: {r: 1, g: 1, b: 1, a: 0}
+  innerColor: {r: 0.022058845, g: 0.007947671, b: 0.007947671, a: 0}
   innerRatio: 0
 --- !u!95 &2049711516
 Animator:

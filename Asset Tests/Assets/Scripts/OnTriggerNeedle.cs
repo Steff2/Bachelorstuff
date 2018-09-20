@@ -6,7 +6,7 @@ using UnityEngine;
 public class OnTriggerNeedle : MonoBehaviour {
 
     public float TimeSinceEnter;
-
+    //Needs rework
 	void OnTriggerEnter(Collider col)
     {
         if (col.CompareTag("Skin"))
