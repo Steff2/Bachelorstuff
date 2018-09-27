@@ -138,7 +138,6 @@ void obj_normal_vector_print(int normal_num, double normal_vector[])
 //    Input, double NORMAL_VECTOR[3*NORMAL_NUM], the normal vectors.
 //
 {
-	int face;
 	int i;
 	int normal;
 
@@ -549,7 +548,6 @@ void obj_write(string output_filename, int node_num, int face_num,
 {
 	int face;
 	int i;
-	int j;
 	int node;
 	int normal;
 	ofstream output;
@@ -832,14 +830,14 @@ void timestamp()
 # define TIME_SIZE 40
 
 	static char time_buffer[TIME_SIZE];
-	const struct std::tm *tm_ptr;
+	struct std::tm tm_ptr;
 	size_t len;
 	std::time_t now;
 
 	now = std::time(NULL);
-	tm_ptr = std::localtime(&now);
+	localtime_s(&tm_ptr, &now);
 
-	len = std::strftime(time_buffer, TIME_SIZE, "%d %B %Y %I:%M:%S %p", tm_ptr);
+	len = std::strftime(time_buffer, TIME_SIZE, "%d %B %Y %I:%M:%S %p", &tm_ptr);
 
 	std::cout << time_buffer << "\n";
 
