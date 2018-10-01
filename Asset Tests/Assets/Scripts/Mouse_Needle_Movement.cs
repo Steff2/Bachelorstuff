@@ -7,6 +7,7 @@ public class Mouse_Needle_Movement : MonoBehaviour {
     public GameObject Needletip;
     public GameObject Cylinder;
 
+    float NeedletoTipDistance;
 
     RaycastHit hit;
     Vector3 RayDirection;
@@ -21,17 +22,22 @@ public class Mouse_Needle_Movement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        NeedletoTipDistance = (Needletip.transform.position - transform.position).magnitude;
         RayDirection = transform.TransformDirection(-Vector3.up);
     }
 	
 	// Update is called once per frame
 	void Update () {
         //Move the needle to the skin while it isn't on it
-        if (Physics.Raycast(transform.position, RayDirection, out hit, Mathf.Infinity, 1 << 10))
+        if (Physics.Raycast(transform.position, RayDirection, out hit, Mathf.Infinity))
         {
-            if ((transform.position - hit.point).magnitude > 1 && !collisionhit)
+            Debug.Log(hit.point);
+            Debug.Log(collisionhit);
+
+            //Only move the needle forward until a certain distance and it does not have a collision
+            if (hit.distance > .2f && !collisionhit)
             {
-                transform.Translate(0, -.5f, 0);
+                Needletip.transform.Translate(0, -.5f, 0);
             }
         }
 
@@ -39,24 +45,24 @@ public class Mouse_Needle_Movement : MonoBehaviour {
         {
             if (Mode == 0)
             {
-                transform.Translate(Input.GetAxis("Mouse X") * Time.deltaTime * speed, 0, Input.GetAxis("Mouse Y") * Time.deltaTime * speed, Space.Self);
+                Needletip.transform.Translate(Input.GetAxis("Mouse X") * Time.deltaTime * speed, 0, Input.GetAxis("Mouse Y") * Time.deltaTime * speed, Space.Self);
             }
 
             if (Mode == 1)
             {
-                transform.Rotate(new Vector3(Input.GetAxis("Mouse Y"), 0, -Input.GetAxis("Mouse X")) * Time.deltaTime * speed);
+                Needletip.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y"), 0, -Input.GetAxis("Mouse X")) * Time.deltaTime * speed);
             }
         }
 
         if (Mode == 2)
         {
-            transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * Time.deltaTime * speed * 10, 0));
+            Needletip.transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * Time.deltaTime * speed * 10, 0));
         }
         
 
         if (Mode == 3)
         {
-            transform.Translate(0, -Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * speed * 10, 0, Space.Self);
+            Needletip.transform.Translate(0, -Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * speed * 10, 0, Space.Self);
         }
 
         if (Input.GetKeyUp(KeyCode.Tab))
@@ -78,35 +84,38 @@ public class Mouse_Needle_Movement : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("test");
+        //Debug.Log("test");
 
         collisionhit = true;
-
+    }
+    void OnCollisionStay(Collision collision)
+    {
+        collisionhit = true;
         float ContactPointtoNeedleTipDistance = 99999;
         Vector3 ClosestContactHitPoint;
 
 
         //Check for all the collision points and get the closest
-        transform.Translate(0, 5f, 0, Space.Self);
+        //Get the orthogonal projection of the contact point
+        //and set the needles rotation accordingly
+        //transform.Translate(0, 1f, 0, Space.Self);
         int i = 0;
         foreach (ContactPoint contact in collision.contacts)
         {
+            Vector3 proj;
             i++;
-            if ((contact.point - Needletip.transform.position).magnitude < ContactPointtoNeedleTipDistance)
+            if ((contact.point - Needletip.transform.position).magnitude < ContactPointtoNeedleTipDistance && (Mode == 0 || Mode == 3) )
             {
                 ContactPointtoNeedleTipDistance = (contact.point - Needletip.transform.position).magnitude;
                 ClosestContactHitPoint = contact.point;
-                transform.position = ClosestContactHitPoint;
+                proj = Needletip.transform.forward - (Vector3.Dot(Needletip.transform.forward, contact.normal)) * contact.normal;
+                Needletip.transform.rotation = Quaternion.Slerp(Needletip.transform.rotation, Quaternion.LookRotation(proj, contact.normal), .02f);
             }
         }
-        Debug.Log(i);
-
     }
     //move it to the skin if it just left the collision
     void OnCollisionExit(Collision collision)
     {
-        Debug.Log("testexit");
         collisionhit = false;
-        transform.Translate(0, -5f, 0, Space.Self);
     }
 }

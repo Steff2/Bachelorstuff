@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 32423b9b37ff5984bb6b3f79a042b9dc
-timeCreated: 1538319097
+timeCreated: 1538394111
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -9,7 +9,7 @@ ModelImporter:
     100002: //RootNode
     400000: default
     400002: //RootNode
-    2100000: defaultMat
+    2100000: None.001
     2300000: default
     3300000: default
     4300000: default
