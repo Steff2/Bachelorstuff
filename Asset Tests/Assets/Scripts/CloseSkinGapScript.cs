@@ -19,11 +19,11 @@ public class CloseSkinGapScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if(Physics.Raycast(Cylinder.transform.position, RayDirection, out hit))
+		if(Physics.Raycast(Cylinder.transform.position, RayDirection, out hit, Mathf.Infinity, 1 << 10))
         {
-            if((Cylinder.transform.position - hit.point).magnitude > 70)
+            if((Cylinder.transform.position - hit.point).magnitude > 0)
             {
-                needle.transform.Translate(0, -1f, 0);
+                Cylinder.transform.Translate(0, -1f, 0);
             }
         }
 	}
