@@ -5,9 +5,8 @@ using UnityEngine;
 public class Mouse_Needle_Movement : MonoBehaviour {
 
     public GameObject Needletip;
+    public GameObject NeedleBack;
     public GameObject Cylinder;
-
-    float NeedletoTipDistance;
 
     RaycastHit hit;
     Vector3 RayDirection;
@@ -22,7 +21,6 @@ public class Mouse_Needle_Movement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        NeedletoTipDistance = (Needletip.transform.position - transform.position).magnitude;
         RayDirection = transform.TransformDirection(-Vector3.up);
     }
 	
@@ -31,8 +29,8 @@ public class Mouse_Needle_Movement : MonoBehaviour {
         //Move the needle to the skin while it isn't on it
         if (Physics.Raycast(transform.position, RayDirection, out hit, Mathf.Infinity))
         {
-            Debug.Log(hit.point);
-            Debug.Log(collisionhit);
+            //Debug.Log(hit.point);
+            //Debug.Log(collisionhit);
 
             //Only move the needle forward until a certain distance and it does not have a collision
             if (hit.distance > .2f && !collisionhit)
@@ -80,6 +78,15 @@ public class Mouse_Needle_Movement : MonoBehaviour {
         {
             Entering = true;
         }
+
+        //if(Input.GetKeyUp("b"))
+        //{
+            if (Physics.SphereCast(NeedleBack.transform.position, 5, Needletip.transform.position - NeedleBack.transform.position, out hit, 1))
+            {
+                Debug.Log("test collision 30");
+                Debug.Log(hit.point);
+            }
+        //}
     }
 
     void OnCollisionEnter(Collision collision)
