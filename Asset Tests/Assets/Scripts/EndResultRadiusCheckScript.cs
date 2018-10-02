@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class EndResultRadiusCheckScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void OnCollisionStay(Collision collision)
+    {
+        if (collision.collider.CompareTag("Radius10"))
+        {
+            Debug.Log("test collision Radius 10");
+        }
+
+        if (collision.collider.CompareTag("Radius30"))
+        {
+            Debug.Log("test collision Radius 30");
+        }
+    }
 }
