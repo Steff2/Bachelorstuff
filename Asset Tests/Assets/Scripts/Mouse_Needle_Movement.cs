@@ -35,7 +35,7 @@ public class Mouse_Needle_Movement : MonoBehaviour {
             //Only move the needle forward until a certain distance and it does not have a collision
             if (hit.distance > .2f && !collisionhit)
             {
-                Needletip.transform.Translate(0, -.5f, 0);
+                //Needletip.transform.Translate(0, -.5f, 0);
             }
         }
 
@@ -81,11 +81,16 @@ public class Mouse_Needle_Movement : MonoBehaviour {
 
         //if(Input.GetKeyUp("b"))
         //{
-            if (Physics.SphereCast(NeedleBack.transform.position, 5, Needletip.transform.position - NeedleBack.transform.position, out hit, 1))
+            if (Physics.SphereCast(NeedleBack.transform.position, 25f, Needletip.transform.position - NeedleBack.transform.position, out hit, 100))
             {
-                Debug.Log("test collision 30");
-                Debug.Log(hit.point);
-            }
+                Debug.Log("test collision 25");
+
+                if (Physics.SphereCast(NeedleBack.transform.position, 15f, Needletip.transform.position - NeedleBack.transform.position, out hit, 100))
+                {
+                    Debug.Log("test collision 15");
+                    Debug.Log(hit.point);
+                }
+        }
         //}
     }
 
