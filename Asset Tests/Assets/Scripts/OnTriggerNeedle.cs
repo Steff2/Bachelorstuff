@@ -7,8 +7,12 @@ public class OnTriggerNeedle : MonoBehaviour {
 
     bool Time1triggered = false;
     bool Time2triggered = false;
+    Mouse_Needle_Movement MovementScript;
 
-    Mouse_Needle_Movement MovementScript = GameObject.Find("Cylinder").GetComponent<Mouse_Needle_Movement>();
+    void Start()
+    {
+        Mouse_Needle_Movement MovementScript = GameObject.Find("Cylinder").GetComponent<Mouse_Needle_Movement>();
+    }
 
     void Update()
     {
