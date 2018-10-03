@@ -2,7 +2,7 @@
 
 public static class FeedbackStorage{
 
-    public static float entryPrecision, duration, needleAccuracy, needleAccuracyRiskyStructures;
+    public static float entryPrecision, durationToEntry, durationAfterEntry, needleAccuracy, needleAccuracyRiskyStructures;
     public static Vector3 entryPoint1, entryPoint2, entryPoint3, entryPoint4, entryPoint5;
 
     public static Vector3 tumorPoint;
@@ -19,15 +19,27 @@ public static class FeedbackStorage{
             }
     }
 
-    public static float Duration
+    public static float DurationToEntry
     {
         get
         {
-            return duration;
+            return durationToEntry;
         }
         set
         {
-            duration = value;
+            durationToEntry = value;
+        }
+    }
+
+    public static float DurationAfterEntry
+    {
+        get
+        {
+            return durationAfterEntry;
+        }
+        set
+        {
+            durationAfterEntry = value;
         }
     }
 

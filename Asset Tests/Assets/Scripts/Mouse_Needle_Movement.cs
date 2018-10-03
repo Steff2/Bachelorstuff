@@ -83,12 +83,12 @@ public class Mouse_Needle_Movement : MonoBehaviour {
         //{
             if (Physics.SphereCast(NeedleBack.transform.position, 25f, Needletip.transform.position - NeedleBack.transform.position, out hit, 100))
             {
-                Debug.Log("test collision 25");
+               // Debug.Log("test collision 25");
 
                 if (Physics.SphereCast(NeedleBack.transform.position, 15f, Needletip.transform.position - NeedleBack.transform.position, out hit, 100))
                 {
-                    Debug.Log("test collision 15");
-                    Debug.Log(hit.point);
+                    //Debug.Log("test collision 15");
+                   // Debug.Log(hit.point);
                 }
         }
         //}

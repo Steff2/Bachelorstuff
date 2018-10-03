@@ -5,22 +5,23 @@ using UnityEngine;
 //For duration with radar chart
 public class OnTriggerNeedle : MonoBehaviour {
 
-    public float TimeSinceEnter;
-    //Needs rework
-	void OnTriggerEnter(Collider col)
-    {
-        if (col.CompareTag("Skin"))
-        {
-            TimeSinceEnter += Time.timeSinceLevelLoad;
-        }
-    }
+    bool Time1triggered = false;
+    bool Time2triggered = false;
 
     void Update()
     {
-        if (Input.GetKey("space"))
+        if (Input.GetKeyUp(KeyCode.Mouse0) && Time1triggered == false)
         {
-            TimeSinceEnter = Time.timeSinceLevelLoad - TimeSinceEnter;
-            FeedbackStorage.duration = TimeSinceEnter;
+            FeedbackStorage.durationToEntry = Time.timeSinceLevelLoad;
+            Time1triggered = true;
+            Debug.Log(FeedbackStorage.durationToEntry);
+        }
+
+        if (Input.GetKeyUp("b") && Time2triggered == false)
+        {
+            FeedbackStorage.durationAfterEntry = Time.timeSinceLevelLoad - FeedbackStorage.durationToEntry;
+            Time2triggered = true;
+            Debug.Log(FeedbackStorage.durationAfterEntry);
         }
     }
 }
