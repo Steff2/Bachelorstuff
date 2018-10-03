@@ -11,13 +11,13 @@ public class Mouse_Needle_Movement : MonoBehaviour {
     RaycastHit hit;
     Vector3 RayDirection;
 
-    bool collisionhit = false;
+    private bool collisionhit = false;
 
     private float speed = 50.0f;
 
-    int Mode = 0;
+    private int Mode = 0;
 
-    bool Entering = false;
+    public bool Entering = false;
 
 	// Use this for initialization
 	void Start () {
@@ -50,17 +50,17 @@ public class Mouse_Needle_Movement : MonoBehaviour {
             {
                 Needletip.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y"), 0, -Input.GetAxis("Mouse X")) * Time.deltaTime * speed);
             }
-        }
 
-        if (Mode == 2)
-        {
-            Needletip.transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * Time.deltaTime * speed * 10, 0));
-        }
-        
+            if (Mode == 2)
+            {
+                Needletip.transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * Time.deltaTime * speed * 10, 0));
+            }
+        }        
 
         if (Mode == 3)
         {
             Needletip.transform.Translate(0, -Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * speed * 10, 0, Space.Self);
+            Entering = true;
         }
 
         if (Input.GetKeyUp(KeyCode.Tab))
@@ -72,11 +72,6 @@ public class Mouse_Needle_Movement : MonoBehaviour {
                 Mode = 0;
             }
             Debug.Log(Mode);
-        }
-        //For now the player is only supposed to rotate and go forward and backward after entering
-        if(Input.GetKeyUp(KeyCode.Space))
-        {
-            Entering = true;
         }
 
         //if(Input.GetKeyUp("b"))

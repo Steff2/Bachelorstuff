@@ -8,9 +8,11 @@ public class OnTriggerNeedle : MonoBehaviour {
     bool Time1triggered = false;
     bool Time2triggered = false;
 
+    Mouse_Needle_Movement MovementScript = GameObject.Find("Cylinder").GetComponent<Mouse_Needle_Movement>();
+
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Mouse0) && Time1triggered == false)
+        if (MovementScript.Entering && Time1triggered == false)
         {
             FeedbackStorage.durationToEntry = Time.timeSinceLevelLoad;
             Time1triggered = true;
