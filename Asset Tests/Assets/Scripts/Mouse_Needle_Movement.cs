@@ -8,6 +8,8 @@ public class Mouse_Needle_Movement : MonoBehaviour {
     public GameObject NeedleBack;
     public GameObject Cylinder;
 
+    bool HitPointRead = false;
+
     RaycastHit hit;
     Vector3 RayDirection;
 
@@ -61,6 +63,13 @@ public class Mouse_Needle_Movement : MonoBehaviour {
         {
             Needletip.transform.Translate(0, -Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * speed * 10, 0, Space.Self);
             Entering = true;
+
+            if (Physics.Raycast(transform.position, RayDirection, out hit, Mathf.Infinity) && HitPointRead == false)
+            {
+                FeedbackStorage.DistanceToSurface = hit.point;
+            }
+
+            HitPointRead = true;
         }
 
         if (Input.GetKeyUp(KeyCode.Tab))

@@ -3,9 +3,8 @@
 public static class FeedbackStorage{
 
     public static float entryPrecision, durationToEntry, durationAfterEntry, needleAccuracy, needleAccuracyRiskyStructures;
-    public static Vector3 entryPoint1, entryPoint2, entryPoint3, entryPoint4, entryPoint5;
 
-    public static Vector3 tumorPoint;
+    public static Vector3 distanceToSurface;
 
     public static float EntryPrecision
     {
@@ -67,20 +66,15 @@ public static class FeedbackStorage{
         }
     }
 
-    public static Vector3 EntryPoints
+    public static Vector3 DistanceToSurface
     {
         get
         {
-            return entryPoint1;
+            return distanceToSurface;
         }
-    }
-
-    public static Vector3 TumorPoint
-    {
-        get
+        set
         {
-            return tumorPoint;
+            distanceToSurface = value;
         }
     }
-
 }
