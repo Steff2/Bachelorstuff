@@ -7,11 +7,13 @@ public class Mouse_Needle_Movement : MonoBehaviour {
     public GameObject Needletip;
     public GameObject NeedleBack;
     public GameObject Cylinder;
+    
 
     bool HitPointRead = false;
 
     RaycastHit hit;
     Vector3 RayDirection;
+    Vector3 Entrypoint;
 
     private bool collisionhit = false;
 
@@ -66,7 +68,7 @@ public class Mouse_Needle_Movement : MonoBehaviour {
 
             if (Physics.Raycast(transform.position, RayDirection, out hit, Mathf.Infinity) && HitPointRead == false)
             {
-                FeedbackStorage.DistanceToSurface = hit.point;
+                Entrypoint = hit.point;
             }
 
             HitPointRead = true;
@@ -85,6 +87,8 @@ public class Mouse_Needle_Movement : MonoBehaviour {
 
         //if(Input.GetKeyUp("b"))
         //{
+
+            FeedbackStorage.DistanceToSurface = (Needletip.transform.position - Entrypoint).magnitude;
             if (Physics.SphereCast(NeedleBack.transform.position, 25f, Needletip.transform.position - NeedleBack.transform.position, out hit, 100))
             {
                // Debug.Log("test collision 25");
@@ -94,7 +98,7 @@ public class Mouse_Needle_Movement : MonoBehaviour {
                     //Debug.Log("test collision 15");
                    // Debug.Log(hit.point);
                 }
-        }
+            }
         //}
     }
 

@@ -2,20 +2,32 @@
 
 public static class FeedbackStorage{
 
-    public static float entryPrecision, durationToEntry, durationAfterEntry, needleAccuracy, needleAccuracyRiskyStructures;
+    public static float durationToEntry, durationAfterEntry, needleAccuracy, needleAccuracyRiskyStructures, distanceToSurface;
 
-    public static Vector3 distanceToSurface;
+    public static bool dangerRadiusTriggered, lessDangerousRadiusTriggered;
 
-    public static float EntryPrecision
+    public static bool DangerRadiusTriggered
     {
         get
         {
-            return entryPrecision;
+            return dangerRadiusTriggered;
         }
         set 
             {
-            entryPrecision = value;
+            dangerRadiusTriggered = value;
             }
+    }
+
+    public static bool LessDangerousRadiusTriggered
+    {
+        get
+        {
+            return lessDangerousRadiusTriggered;
+        }
+        set
+        {
+            lessDangerousRadiusTriggered = value;
+        }
     }
 
     public static float DurationToEntry
@@ -66,7 +78,7 @@ public static class FeedbackStorage{
         }
     }
 
-    public static Vector3 DistanceToSurface
+    public static float DistanceToSurface
     {
         get
         {
@@ -76,5 +88,24 @@ public static class FeedbackStorage{
         {
             distanceToSurface = value;
         }
+    }
+
+    public static float CalculateScore()
+    {
+        float Score;
+
+        Score = DurationAfterEntry - DistanceToSurface;
+
+        if(LessDangerousRadiusTriggered && !DangerRadiusTriggered)
+        {
+            Score -= 30;
+        }
+
+        if (LessDangerousRadiusTriggered && DangerRadiusTriggered)
+        {
+            Score -= 60;
+        }
+
+        return Score;
     }
 }
