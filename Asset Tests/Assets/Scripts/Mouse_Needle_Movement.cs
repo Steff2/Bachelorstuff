@@ -23,8 +23,9 @@ public class Mouse_Needle_Movement : MonoBehaviour {
 
     public bool Entering = false;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
+
         RayDirection = transform.TransformDirection(-Vector3.up);
     }
 	
@@ -85,8 +86,8 @@ public class Mouse_Needle_Movement : MonoBehaviour {
             Debug.Log(Mode);
         }
 
-        //if(Input.GetKeyUp("b"))
-        //{
+        if (Input.GetKeyUp("b"))
+        {
 
             FeedbackStorage.DistanceToSurface = (Needletip.transform.position - Entrypoint).magnitude;
             if (Physics.SphereCast(NeedleBack.transform.position, 25f, Needletip.transform.position - NeedleBack.transform.position, out hit, 100))
@@ -99,7 +100,7 @@ public class Mouse_Needle_Movement : MonoBehaviour {
                    // Debug.Log(hit.point);
                 }
             }
-        //}
+        }
     }
 
     void OnCollisionEnter(Collision collision)

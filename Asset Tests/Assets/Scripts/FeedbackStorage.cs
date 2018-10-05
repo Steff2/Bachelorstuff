@@ -1,8 +1,16 @@
 ﻿using UnityEngine;
+using System.Collections;
+using System;
+using System.IO;
+using System.Text;
+using System.Threading;
+using System.ComponentModel;
 
 public static class FeedbackStorage{
 
     public static float durationToEntry, durationAfterEntry, needleAccuracy, needleAccuracyRiskyStructures, distanceToSurface;
+
+    public static float CallCounter = 0;
 
     public static bool dangerRadiusTriggered, lessDangerousRadiusTriggered;
 
@@ -27,6 +35,18 @@ public static class FeedbackStorage{
         set
         {
             lessDangerousRadiusTriggered = value;
+        }
+    }
+
+    public static float callCounter
+    {
+        get
+        {
+            return CallCounter;
+        }
+        set
+        {
+            CallCounter = value;
         }
     }
 
