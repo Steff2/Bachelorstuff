@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.IO;
+using System;
 
 public class HandleScoreTextFile : MonoBehaviour {
 
@@ -10,12 +11,12 @@ public class HandleScoreTextFile : MonoBehaviour {
 
         //Write some text to the test.txt file
         StreamWriter writer = new StreamWriter(path, true);
-        writer.WriteLine("Take" + FeedbackStorage.callCounter);
-        writer.WriteLine("Danger Radius = " + FeedbackStorage.DangerRadiusTriggered);
-        writer.WriteLine("Outer Radius = " + FeedbackStorage.LessDangerousRadiusTriggered);
-        writer.WriteLine("Duration to Entrypoint = " + FeedbackStorage.DurationToEntry);
-        writer.WriteLine("Duration after Entrypoint = " + FeedbackStorage.DurationAfterEntry);
-        writer.WriteLine("Distance to Surface = " + FeedbackStorage.DistanceToSurface);
+        writer.WriteLine("take " + FeedbackStorage.callCounter);
+        writer.WriteLine("danger_Radius " + FeedbackStorage.DangerRadiusTriggered);
+        writer.WriteLine("outer_Radius " + FeedbackStorage.LessDangerousRadiusTriggered);
+        writer.WriteLine("duration_to_Entrypoint " + FeedbackStorage.DurationToEntry);
+        writer.WriteLine("duration_after_Entrypoint " + FeedbackStorage.DurationAfterEntry);
+        writer.WriteLine("distance_to_Surface " + FeedbackStorage.DistanceToSurface);
         writer.WriteLine(" ");
         writer.Close();
 
@@ -23,12 +24,35 @@ public class HandleScoreTextFile : MonoBehaviour {
 
     static void ReadString()
     {
-        string path = "Assets/Resources/test.txt";
+        string path = "Assets/Scores.txt";
 
         //Read the text from directly from the test.txt file
         StreamReader reader = new StreamReader(path);
-        Debug.Log(reader.ReadToEnd());
-        reader.Close();
+
+        int lineCount = File.ReadAllLines(@"Assets/Scores.txt").Length;
+        int SkipLinesCounter = 0;
+
+        string line;
+        string text;
+
+        while ((line = reader.ReadLine()) != null)
+        {
+            if (SkipLinesCounter > (lineCount - 2 * 7))
+            {
+                continue;
+            }
+
+            else
+            {
+                text = reader.ReadLine();
+                string[] splitString = text.Split(new string[] { " " }, StringSplitOptions.None);
+
+
+                float.Parse(splitString[1]);
+                SkipLinesCounter++;
+            }
+            reader.Close();
+        }
     }
 
     void Update()
@@ -36,6 +60,7 @@ public class HandleScoreTextFile : MonoBehaviour {
         if (Input.GetKeyUp("b"))
         {
             WriteString();
+            ReadString();
         }
     }
 
