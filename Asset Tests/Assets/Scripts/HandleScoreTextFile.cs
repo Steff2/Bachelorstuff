@@ -47,8 +47,73 @@ public class HandleScoreTextFile : MonoBehaviour {
                 text = reader.ReadLine();
                 string[] splitString = text.Split(new string[] { " " }, StringSplitOptions.None);
 
+                if (splitString[0] == "outer_radius")
+                {
+                    if(FeedbackStorage.LessDangerousRadiusTriggered == bool.Parse(splitString[1]))
+                    {
 
-                float.Parse(splitString[1]);
+                    }
+                    else
+                    {
+
+                    }
+                }
+                if (splitString[0] == "danger_Radius")
+                {
+                    if(FeedbackStorage.DangerRadiusTriggered == bool.Parse(splitString[1]))
+                    {
+
+                    }
+                    else
+                    {
+
+                    }
+                }
+                if (splitString[0] == "duration_to_Entrypoint")
+                {
+                    if(FeedbackStorage.DurationToEntry < float.Parse(splitString[1]))
+                    {
+
+                    }
+                    if(FeedbackStorage.DurationToEntry > float.Parse(splitString[1]))
+                    {
+
+                    }
+                    if (FeedbackStorage.DurationToEntry == float.Parse(splitString[1]))
+                    {
+
+                    }
+                }
+                if (splitString[0] == "duration_after_Entrypoint")
+                {
+                    if (FeedbackStorage.DurationAfterEntry < float.Parse(splitString[1]))
+                    {
+
+                    }
+                    if (FeedbackStorage.DurationAfterEntry > float.Parse(splitString[1]))
+                    {
+
+                    }
+                    if (FeedbackStorage.DurationAfterEntry == float.Parse(splitString[1]))
+                    {
+
+                    }
+                }
+                if (splitString[0] == "distance_to_Surface")
+                {
+                    if (FeedbackStorage.DistanceToSurface < float.Parse(splitString[1]))
+                    {
+
+                    }
+                    if (FeedbackStorage.DistanceToSurface > float.Parse(splitString[1]))
+                    {
+
+                    }
+                    if (FeedbackStorage.DistanceToSurface == float.Parse(splitString[1]))
+                    {
+
+                    }
+                }
                 SkipLinesCounter++;
             }
             reader.Close();

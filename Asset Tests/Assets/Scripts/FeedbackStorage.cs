@@ -8,7 +8,7 @@ using System.ComponentModel;
 
 public static class FeedbackStorage{
 
-    public static float durationToEntry, durationAfterEntry, needleAccuracy, needleAccuracyRiskyStructures, distanceToSurface;
+    public static float durationToEntry, durationAfterEntry, needleAccuracy, distanceToSurface;
 
     public static float CallCounter = 0;
 
@@ -83,18 +83,6 @@ public static class FeedbackStorage{
         set
         {
             needleAccuracy = value;
-        }
-    }
-
-    public static float NeedleAccuracyRiskyStructures
-    {
-        get
-        {
-            return needleAccuracyRiskyStructures;
-        }
-        set
-        {
-            needleAccuracyRiskyStructures = value;
         }
     }
 
