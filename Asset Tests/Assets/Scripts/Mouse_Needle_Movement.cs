@@ -21,7 +21,7 @@ public class Mouse_Needle_Movement : MonoBehaviour {
 
     private int Mode = 0;
 
-    public bool Entering = false;
+    public bool EnteringSkin = false;
 
     // Use this for initialization
     void Start () {
@@ -44,28 +44,29 @@ public class Mouse_Needle_Movement : MonoBehaviour {
             }
         }
 
-        if (Entering == false)
+        if (EnteringSkin == false)
         {
+            //Move along the x and y direction by moving your mouse
             if (Mode == 0)
             {
                 Needletip.transform.Translate(Input.GetAxis("Mouse X") * Time.deltaTime * speed, 0, Input.GetAxis("Mouse Y") * Time.deltaTime * speed, Space.Self);
             }
-
+            //Rotate around the point the needle tip is at by moving your mouse
             if (Mode == 1)
             {
                 Needletip.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y"), 0, -Input.GetAxis("Mouse X")) * Time.deltaTime * speed);
             }
-
+            //Rotate the needle itself by moving your mouse
             if (Mode == 2)
             {
                 Needletip.transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * Time.deltaTime * speed * 10, 0));
             }
         }        
-
+        //Move back and forth with the mouse wheel
         if (Mode == 3)
         {
             Needletip.transform.Translate(0, -Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * speed * 10, 0, Space.Self);
-            Entering = true;
+            EnteringSkin = true;
 
             if (Physics.Raycast(transform.position, RayDirection, out hit, Mathf.Infinity) && HitPointRead == false)
             {

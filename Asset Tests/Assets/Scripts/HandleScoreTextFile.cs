@@ -37,11 +37,11 @@ public class HandleScoreTextFile : MonoBehaviour {
 
         writer.WriteLine("duration_to_Entrypoint " + FeedbackStorage.DurationToEntry);
 
-        ScoreText.text += "Your time until the needle entered the skin: " + FeedbackStorage.DurationToEntry + "\n";
+        ScoreText.text += "Your time until the needle entered the skin: " + FeedbackStorage.DurationToEntry + "s" + "\n";
 
         writer.WriteLine("duration_after_Entrypoint " + FeedbackStorage.DurationAfterEntry);
 
-        ScoreText.text += "Your time until the seed was placed: " + FeedbackStorage.DurationAfterEntry + "\n";
+        ScoreText.text += "Your time until the seed was placed: " + FeedbackStorage.DurationAfterEntry + "s" + "\n";
 
         writer.WriteLine("distance_to_Surface " + FeedbackStorage.DistanceToSurface);
 
@@ -128,7 +128,7 @@ public class HandleScoreTextFile : MonoBehaviour {
                 {
                     if(FeedbackStorage.DurationToEntry < float.Parse(splitString[1]))
                     {
-                        ScoreText.text += "In your last attempt your time before entering was: " + FeedbackStorage.DurationToEntry;
+                        ScoreText.text += "In your last attempt your time before entering was: " + FeedbackStorage.DurationToEntry + "s";
                     }
                     if(FeedbackStorage.DurationToEntry > float.Parse(splitString[1]))
                     {
@@ -143,7 +143,7 @@ public class HandleScoreTextFile : MonoBehaviour {
                 {
                     if (FeedbackStorage.DurationAfterEntry < float.Parse(splitString[1]))
                     {
-                        ScoreText.text += "In your last attempt your time after entering was: " + FeedbackStorage.DurationAfterEntry;
+                        ScoreText.text += "In your last attempt your time after entering was: " + FeedbackStorage.DurationAfterEntry + "s";
                     }
                     if (FeedbackStorage.DurationAfterEntry > float.Parse(splitString[1]))
                     {
