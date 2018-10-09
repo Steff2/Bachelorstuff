@@ -148,7 +148,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1148913}
   m_LocalRotation: {x: 0.5464745, y: 0.45618886, z: 0.4649801, w: -0.5263563}
-  m_LocalPosition: {x: 123.82, y: 7.42, z: -546.2}
+  m_LocalPosition: {x: -51, y: 12.7, z: -519.5}
   m_LocalScale: {x: 0.25000012, y: 50.00006, z: 0.25000024}
   m_Children:
   - {fileID: 2029589986}
@@ -3082,7 +3082,6 @@ GameObject:
   - component: {fileID: 871294172}
   - component: {fileID: 871294174}
   - component: {fileID: 871294173}
-  - component: {fileID: 871294178}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -3146,19 +3145,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 871294171}
   m_Mesh: {fileID: 4300000, guid: e658f3d751d65444ea5639f51ff5c8e3, type: 3}
---- !u!114 &871294178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 871294171}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 370b5d5efb3f70243bf2fcb99bee6162, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  needle: {fileID: 1746083704}
-  Cylinder: {fileID: 2029589982}
 --- !u!1 &877576474 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 7d1f637dbb681fa488ac969d63869fc8, type: 3}
@@ -6806,7 +6792,7 @@ MonoBehaviour:
   Needletip: {fileID: 1148913}
   NeedleBack: {fileID: 1995033938}
   Cylinder: {fileID: 2029589982}
-  Entering: 0
+  EnteringSkin: 0
 --- !u!136 &2029589989
 CapsuleCollider:
   m_ObjectHideFlags: 0

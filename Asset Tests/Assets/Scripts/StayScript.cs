@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//Script to hold the mesh parts in place
 public class StayScript : MonoBehaviour {
 
 	// Use this for initialization

@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//*Work in Progress*
-//For duration with radar chart
+
+//Measuring and saving the time until entry in the skin and time from entering until final position
 public class OnTriggerNeedle : MonoBehaviour {
 
     bool Time1triggered = false;
@@ -16,7 +16,7 @@ public class OnTriggerNeedle : MonoBehaviour {
 
     void Update()
     {
-        if (MovementScript.Entering && Time1triggered == false)
+        if (MovementScript.EnteringSkin && Time1triggered == false)
         {
             FeedbackStorage.DurationToEntry = Time.timeSinceLevelLoad;
             Time1triggered = true;

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//standard follow script
 public class US_Device_Movement : MonoBehaviour
 {
     public Transform toFollow;

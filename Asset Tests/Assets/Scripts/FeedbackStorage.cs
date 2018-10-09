@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading;
 using System.ComponentModel;
 
+
+//saves the variables of the score in this class
 public static class FeedbackStorage{
 
     public static float durationToEntry, durationAfterEntry, needleAccuracy, distanceToSurface;
@@ -71,18 +73,6 @@ public static class FeedbackStorage{
         set
         {
             durationAfterEntry = value;
-        }
-    }
-
-    public static float NeedleAccuracy
-    {
-        get
-        {
-            return needleAccuracy;
-        }
-        set
-        {
-            needleAccuracy = value;
         }
     }
 
