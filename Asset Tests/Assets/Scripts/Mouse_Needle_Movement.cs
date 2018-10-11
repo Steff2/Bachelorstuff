@@ -34,13 +34,10 @@ public class Mouse_Needle_Movement : MonoBehaviour {
         //Move the needle to the skin while it isn't on it
         if (Physics.Raycast(transform.position, RayDirection, out hit, Mathf.Infinity))
         {
-            //Debug.Log(hit.point);
-            //Debug.Log(collisionhit);
-
             //Only move the needle forward until a certain distance and it does not have a collision
             if (hit.distance > .2f && !collisionhit)
             {
-                //Needletip.transform.Translate(0, -.5f, 0);
+                Needletip.transform.Translate(0, -.5f, 0);
             }
         }
 
@@ -75,7 +72,7 @@ public class Mouse_Needle_Movement : MonoBehaviour {
 
             HitPointRead = true;
         }
-
+        //There is no Mode == 4 so make it loop to 0
         if (Input.GetKeyUp(KeyCode.Tab))
         {
             Mode = Mode + 1;
@@ -86,7 +83,7 @@ public class Mouse_Needle_Movement : MonoBehaviour {
             }
             Debug.Log(Mode);
         }
-
+        //Signal for getting the distance to surface and set the "Entering" state basically
         if (Input.GetKeyUp("b"))
         {
 
@@ -117,19 +114,21 @@ public class Mouse_Needle_Movement : MonoBehaviour {
         Vector3 ClosestContactHitPoint;
 
 
-        //Check for all the collision points and get the closest
-        //Get the orthogonal projection of the contact point
-        //and set the needles rotation accordingly
         //transform.Translate(0, 1f, 0, Space.Self);
         int i = 0;
+        //Check for all the collision points and get the closest
         foreach (ContactPoint contact in collision.contacts)
         {
             Vector3 proj;
             i++;
+            //only do this in the fourth and first mode
+            //and only at a certain distance
             if ((contact.point - Needletip.transform.position).magnitude < ContactPointtoNeedleTipDistance && (Mode == 0 || Mode == 3) )
             {
                 ContactPointtoNeedleTipDistance = (contact.point - Needletip.transform.position).magnitude;
                 ClosestContactHitPoint = contact.point;
+                //Get the orthogonal projection of the contact point
+                //and set the needles rotation accordingly
                 proj = Needletip.transform.forward - (Vector3.Dot(Needletip.transform.forward, contact.normal)) * contact.normal;
                 Needletip.transform.rotation = Quaternion.Slerp(Needletip.transform.rotation, Quaternion.LookRotation(proj, contact.normal), .02f);
             }

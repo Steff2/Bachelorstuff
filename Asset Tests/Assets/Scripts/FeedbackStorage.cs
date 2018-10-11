@@ -14,7 +14,9 @@ public static class FeedbackStorage{
 
     public static float CallCounter = 0;
 
-    public static bool dangerRadiusTriggered, lessDangerousRadiusTriggered;
+    public static bool dangerRadiusTriggered, lessDangerousRadiusTriggered, Guiding_Assistance;
+
+
 
     public static bool DangerRadiusTriggered
     {
@@ -26,6 +28,18 @@ public static class FeedbackStorage{
             {
             dangerRadiusTriggered = value;
             }
+    }
+
+    public static bool guiding_Assistance
+    {
+        get
+        {
+            return Guiding_Assistance;
+        }
+        set
+        {
+            Guiding_Assistance = value;
+        }
     }
 
     public static bool LessDangerousRadiusTriggered
@@ -87,7 +101,7 @@ public static class FeedbackStorage{
             distanceToSurface = value;
         }
     }
-
+    //Calculates the score with all the variables
     public static float CalculateScore()
     {
         float Score;
