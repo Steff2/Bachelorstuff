@@ -46,12 +46,12 @@ public class Mouse_Needle_Movement : MonoBehaviour {
             //Move along the x and y direction by moving your mouse
             if (Mode == 0)
             {
-                Needletip.transform.Translate(Input.GetAxis("Mouse X") * Time.deltaTime * speed, 0, Input.GetAxis("Mouse Y") * Time.deltaTime * speed, Space.Self);
+                Needletip.transform.Translate(-Input.GetAxis("Mouse Y") * Time.deltaTime * speed, 0, Input.GetAxis("Mouse X") * Time.deltaTime * speed, Space.Self);
             }
             //Rotate around the point the needle tip is at by moving your mouse
             if (Mode == 1)
             {
-                Needletip.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y"), 0, -Input.GetAxis("Mouse X")) * Time.deltaTime * speed);
+                Needletip.transform.Rotate(new Vector3(Input.GetAxis("Mouse X") * Time.deltaTime * speed, 0, Input.GetAxis("Mouse Y")));
             }
             //Rotate the needle itself by moving your mouse
             if (Mode == 2)

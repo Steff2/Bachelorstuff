@@ -38,11 +38,11 @@ public class EntrypointPosition : MonoBehaviour {
 
         position_counter = 1;
 
-        first_point_vector = entryPoint1.transform.position - tumorPoint.transform.position;
-        second_point_vector = entryPoint2.transform.position - tumorPoint.transform.position;
-        third_point_vector = entryPoint3.transform.position - tumorPoint.transform.position;
-        fourth_point_vector = entryPoint4.transform.position - tumorPoint.transform.position;
-        fifth_point_vector = entryPoint5.transform.position - tumorPoint.transform.position;
+        first_point_vector = tumorPoint.transform.position + entryPoint1.transform.position;
+        second_point_vector = tumorPoint.transform.position + entryPoint2.transform.position;
+        third_point_vector = tumorPoint.transform.position + entryPoint3.transform.position;
+        fourth_point_vector = tumorPoint.transform.position + entryPoint4.transform.position;
+        fifth_point_vector = tumorPoint.transform.position + entryPoint5.transform.position;
 
     }
 	
@@ -60,37 +60,47 @@ public class EntrypointPosition : MonoBehaviour {
 
                 if (position_counter == 1)
                 {
-                    gameObject.transform.position = entryPoint1.transform.position - 60 * first_point_vector.normalized;
+                    gameObject.transform.position = entryPoint1.transform.position;
+                    Debug.Log(entryPoint1.transform.position - 10 * first_point_vector.normalized);
+                    Debug.Log(gameObject.transform.position);
                     gameObject.transform.LookAt(tumorPoint.transform.position);
-                    gameObject.transform.Rotate(-90, 0, 0);
+                    //gameObject.transform.Rotate(-180, 0, 0);
                 }
 
                 if (position_counter == 2)
                 {
-                    gameObject.transform.position = entryPoint2.transform.position - 60 * second_point_vector.normalized;
+                    gameObject.transform.position = entryPoint2.transform.position;
+                    Debug.Log(entryPoint2.transform.position - 10 * first_point_vector.normalized);
+                    Debug.Log(gameObject.transform.position);
                     gameObject.transform.LookAt(tumorPoint.transform.position);
-                    gameObject.transform.Rotate(-90, 0, 0);
+                    //gameObject.transform.Rotate(-180, 0, 0);
                 }
 
                 if (position_counter == 3)
                 {
-                    gameObject.transform.position = entryPoint3.transform.position - 10 * third_point_vector.normalized;
+                    gameObject.transform.position = entryPoint3.transform.position;
+                    Debug.Log(entryPoint3.transform.position - 10 * first_point_vector.normalized);
+                    Debug.Log(gameObject.transform.position);
                     gameObject.transform.LookAt(tumorPoint.transform.position);
-                    gameObject.transform.Rotate(-90, 0, 0);
+                    //gameObject.transform.Rotate(-180, 0, 0);
                 }
 
                 if (position_counter == 4)
                 {
-                    gameObject.transform.position = entryPoint4.transform.position - 10 * fourth_point_vector.normalized;
+                    gameObject.transform.position = entryPoint4.transform.position;
+                    Debug.Log(entryPoint4.transform.position - 10 * first_point_vector.normalized);
+                    Debug.Log(gameObject.transform.position);
                     gameObject.transform.LookAt(tumorPoint.transform.position);
-                    gameObject.transform.Rotate(-90, 0, 0);
+                    //gameObject.transform.Rotate(-180, 0, 0);
                 }
 
                 if (position_counter == 5)
                 {
-                    gameObject.transform.position = entryPoint5.transform.position - 60 * fifth_point_vector.normalized;
+                    gameObject.transform.position = entryPoint5.transform.position;
+                    Debug.Log(entryPoint5.transform.position - 10 * first_point_vector.normalized);
+                    Debug.Log(gameObject.transform.position);
                     gameObject.transform.LookAt(tumorPoint.transform.position);
-                    gameObject.transform.Rotate(-90, 0, 0);
+                    //gameObject.transform.Rotate(-180, 0, 0);
                 }
             }
 
@@ -105,37 +115,48 @@ public class EntrypointPosition : MonoBehaviour {
 
                 if (position_counter == 1)
                 {
-                    gameObject.transform.position = entryPoint1.transform.position - 60 * first_point_vector.normalized;
+                    gameObject.transform.position = entryPoint1.transform.position;
+                    Debug.Log(entryPoint1.transform.position - 10 * first_point_vector.normalized);
+                    Debug.Log(gameObject.transform.position);
                     gameObject.transform.LookAt(tumorPoint.transform.position);
-                    gameObject.transform.Rotate(-90, 0, 0);
+                    //gameObject.transform.Rotate(-180, 0, 0);
                 }
 
                 if (position_counter == 2)
                 {
-                    gameObject.transform.position = entryPoint2.transform.position - 60 * second_point_vector.normalized;
+                    gameObject.transform.position = entryPoint2.transform.position;
+                    Debug.Log(entryPoint2.transform.position - 10 * first_point_vector.normalized);
+                    Debug.Log(gameObject.transform.position);
+                    //gameObject.transform.rotation = needle2.transform.rotation;
                     gameObject.transform.LookAt(tumorPoint.transform.position);
-                    gameObject.transform.Rotate(-90, 0, 0);
-                }
+                    //gameObject.transform.Rotate(-90, 0, 0);
+            }
 
                 if (position_counter == 3)
                 {
-                    gameObject.transform.position = entryPoint3.transform.position - 10 * third_point_vector.normalized;
+                    gameObject.transform.position = entryPoint3.transform.position;
+                    Debug.Log(entryPoint3.transform.position - 10 * first_point_vector.normalized);
+                    Debug.Log(gameObject.transform.position);
                     gameObject.transform.LookAt(tumorPoint.transform.position);
-                    gameObject.transform.Rotate(-90, 0, 0);
+                    //gameObject.transform.Rotate(-180, 0, 0);
                 }
 
                 if (position_counter == 4)
                 {
-                    gameObject.transform.position = entryPoint4.transform.position - 10 * fourth_point_vector.normalized;
+                    gameObject.transform.position = entryPoint4.transform.position;
+                    Debug.Log(entryPoint4.transform.position - 10 * first_point_vector.normalized);
+                    Debug.Log(gameObject.transform.position);
                     gameObject.transform.LookAt(tumorPoint.transform.position);
-                    gameObject.transform.Rotate(-90, 0, 0);
+                    //gameObject.transform.Rotate(-180, 0, 0);
                 }
 
             if (position_counter == 5)
                 {
-                    gameObject.transform.position = entryPoint5.transform.position - 60 * fifth_point_vector.normalized;
+                    gameObject.transform.position = entryPoint5.transform.position;
+                    Debug.Log(entryPoint5.transform.position - 10 * first_point_vector.normalized);
+                    Debug.Log(gameObject.transform.position);
                     gameObject.transform.LookAt(tumorPoint.transform.position);
-                    gameObject.transform.Rotate(-90, 0, 0);
+                    //gameObject.transform.Rotate(-180, 0, 0);
                 }
             }
 
