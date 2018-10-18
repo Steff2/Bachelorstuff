@@ -7,6 +7,7 @@ public class Mouse_Needle_Movement : MonoBehaviour {
     public GameObject Needletip;
     public GameObject NeedleBack;
     public GameObject Cylinder;
+    public GameObject Seed;
     
 
     bool HitPointRead = false;
@@ -86,7 +87,7 @@ public class Mouse_Needle_Movement : MonoBehaviour {
         //Signal for getting the distance to surface and set the "Entering" state basically
         if (Input.GetKeyUp("b"))
         {
-
+            Instantiate(Seed, gameObject.transform.position, Seed.transform.rotation);
             FeedbackStorage.DistanceToSurface = (Needletip.transform.position - Entrypoint).magnitude;
             if (Physics.SphereCast(NeedleBack.transform.position, 25f, Needletip.transform.position - NeedleBack.transform.position, out hit, 100))
             {
