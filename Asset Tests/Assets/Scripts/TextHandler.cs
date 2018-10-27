@@ -18,7 +18,7 @@ public class TextHandler : MonoBehaviour {
 	void Start () {
 
         PlanText.GetComponent<Text>().enabled = true;
-        gameObject.GetComponent<Text>().enabled = false;
+        //gameObject.GetComponent<Text>().enabled = false;
 
     }
 	

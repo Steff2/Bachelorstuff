@@ -8,6 +8,8 @@ public class Mouse_Needle_Movement : MonoBehaviour {
     public GameObject NeedleBack;
     public GameObject Cylinder;
     public GameObject Seed;
+    public GameObject USCamera;
+    public GameObject USDevice;
     
 
     bool HitPointRead = false;
@@ -15,6 +17,10 @@ public class Mouse_Needle_Movement : MonoBehaviour {
     RaycastHit hit;
     Vector3 RayDirection;
     Vector3 Entrypoint;
+    Vector3 Fixed_Position_In_front_of_Skin_USDevice;
+    Vector3 Fixed_Position_In_front_of_Skin_Cam;
+
+    MeshCollider CylinderMeshCollider;
 
     private bool collisionhit = false;
 
@@ -27,6 +33,7 @@ public class Mouse_Needle_Movement : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
+        CylinderMeshCollider = gameObject.GetComponent<MeshCollider>();
         RayDirection = transform.TransformDirection(-Vector3.up);
     }
 	
@@ -36,9 +43,9 @@ public class Mouse_Needle_Movement : MonoBehaviour {
         if (Physics.Raycast(transform.position, RayDirection, out hit, Mathf.Infinity))
         {
             //Only move the needle forward until a certain distance and it does not have a collision
-            if (hit.distance > .2f && !collisionhit)
+            if (hit.distance > 1f && !collisionhit)
             {
-                Needletip.transform.Translate(0, -.5f, 0);
+                Needletip.transform.Translate(0, 0, .5f);
             }
         }
 
@@ -47,7 +54,7 @@ public class Mouse_Needle_Movement : MonoBehaviour {
             //Move along the x and y direction by moving your mouse
             if (Mode == 0)
             {
-                Needletip.transform.Translate(-Input.GetAxis("Mouse Y") * Time.deltaTime * speed, 0, Input.GetAxis("Mouse X") * Time.deltaTime * speed, Space.Self);
+                Needletip.transform.Translate(-Input.GetAxis("Mouse Y") * Time.deltaTime * speed, Input.GetAxis("Mouse X") * Time.deltaTime * speed, 0, Space.Self);
             }
             //Rotate around the point the needle tip is at by moving your mouse
             if (Mode == 1)
@@ -63,13 +70,19 @@ public class Mouse_Needle_Movement : MonoBehaviour {
         //Move back and forth with the mouse wheel
         if (Mode == 3)
         {
-            Needletip.transform.Translate(0, -Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * speed * 10, 0, Space.Self);
+            Needletip.transform.Translate(0, 0, Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * speed * 10, Space.Self);
             EnteringSkin = true;
 
             if (Physics.Raycast(transform.position, RayDirection, out hit, Mathf.Infinity) && HitPointRead == false)
             {
                 Entrypoint = hit.point;
+                Fixed_Position_In_front_of_Skin_USDevice = USDevice.transform.position;
+                Fixed_Position_In_front_of_Skin_Cam = USCamera.transform.position;
             }
+
+            CylinderMeshCollider.enabled = false;
+            USCamera.transform.position = Fixed_Position_In_front_of_Skin_Cam;
+            USDevice.transform.position = Fixed_Position_In_front_of_Skin_USDevice;
 
             HitPointRead = true;
         }
@@ -115,23 +128,30 @@ public class Mouse_Needle_Movement : MonoBehaviour {
         Vector3 ClosestContactHitPoint;
 
 
-        //transform.Translate(0, 1f, 0, Space.Self);
         int i = 0;
         //Check for all the collision points and get the closest
         foreach (ContactPoint contact in collision.contacts)
         {
             Vector3 proj;
+            Vector3 UpvectorForRotation;
             i++;
             //only do this in the fourth and first mode
             //and only at a certain distance
-            if ((contact.point - Needletip.transform.position).magnitude < ContactPointtoNeedleTipDistance && (Mode == 0 || Mode == 3) )
+            if (EnteringSkin == false)
             {
-                ContactPointtoNeedleTipDistance = (contact.point - Needletip.transform.position).magnitude;
-                ClosestContactHitPoint = contact.point;
-                //Get the orthogonal projection of the contact point
-                //and set the needles rotation accordingly
-                proj = Needletip.transform.forward - (Vector3.Dot(Needletip.transform.forward, contact.normal)) * contact.normal;
-                Needletip.transform.rotation = Quaternion.Slerp(Needletip.transform.rotation, Quaternion.LookRotation(proj, contact.normal), .02f);
+                if ((contact.point - Needletip.transform.position).magnitude < ContactPointtoNeedleTipDistance && (Mode == 0 || Mode == 3))
+                {
+                    ContactPointtoNeedleTipDistance = (contact.point - Needletip.transform.position).magnitude;
+                    ClosestContactHitPoint = contact.point;
+                    //Get the orthogonal projection of the contact point
+                    //and set the needles rotation accordingly
+
+                    proj = Needletip.transform.position;
+                    proj = Vector3.ProjectOnPlane(proj, contact.normal);
+                    UpvectorForRotation = contact.point - proj;
+                    //proj = Needletip.transform.forward - (Vector3.Dot(Needletip.transform.forward, contact.normal)) * contact.normal;
+                    Needletip.transform.rotation = Quaternion.Slerp(Needletip.transform.rotation, Quaternion.LookRotation(-UpvectorForRotation, contact.normal), .02f);
+                }
             }
         }
     }

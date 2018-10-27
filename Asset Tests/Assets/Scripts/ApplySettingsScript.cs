@@ -22,7 +22,6 @@ public class ApplySettingsScript : MonoBehaviour {
         MainCameraScript = GameObject.Find("Main Camera").GetComponent<CameraController>();
         NeedleCollider_Mesh = GameObject.Find("Cylinder").GetComponent<MeshCollider>();
         TextForGuidance = GameObject.Find("PlanText").GetComponent<Text>();
-        TextWithoutGuidance = GameObject.Find("StartingScreen").GetComponent<Text>();
 
         if (FeedbackStorage.guiding_Assistance)
         {
@@ -31,7 +30,6 @@ public class ApplySettingsScript : MonoBehaviour {
             MainCameraScript.enabled = true;
             NeedleCollider_Mesh.enabled = false;
             TextForGuidance.enabled = true;
-            TextWithoutGuidance.enabled = true;
             Debug.Log("test guidance script");
             Debug.Log(Guidance_Script.enabled);
             Debug.Log("test no guidance script");
@@ -46,7 +44,6 @@ public class ApplySettingsScript : MonoBehaviour {
             MainCameraScript.enabled = false;
             NeedleCollider_Mesh.enabled = true;
             TextForGuidance.enabled = false;
-            TextWithoutGuidance.enabled = false;
             Debug.Log("test guidance script");
             Debug.Log(Guidance_Script.enabled);
             Debug.Log("test no guidance script");

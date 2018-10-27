@@ -150,7 +150,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1148913}
   m_LocalRotation: {x: 0.51581806, y: -0.4761669, z: -0.48324567, w: -0.52313524}
-  m_LocalPosition: {x: -161.79, y: -143.94, z: -543.13}
+  m_LocalPosition: {x: -161.79, y: -145.6, z: -543.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2029589986}
@@ -3092,11 +3092,24 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "This Simulation is presented to you by Stefan M\xFCller\n\nControls:\n\n\n\n\n-
-    Up/Down/Left/Right Arrow Key: Rotates the needle\n\n\n\n- Mouse 1: Moves the needle
-    forward in the direction it is facing\n\n- Mouse 2: Moves the needle backwards\n\n\n-
-    W/A/S/D moves the body of the needle directly (Up/Left/Down/Right)\n\nPress Tab
-    to close this hint"
+  m_Text: 'Controls:
+
+
+
+    Press Tab to switch Modes:
+
+
+    Default Mode (Mode 1): Move X/Y - Direction relative to the skin with your mouse
+
+
+    Mode 2: Rotate needle around its tip with your mouse
+
+
+    Mode 3: Rotate needle around itself with your mouse
+
+
+    Mode 4: Move forward and backward with mouse wheel (this mode is final and cannot
+    be changed out of) '
 --- !u!222 &624455129
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7851,7 +7864,8 @@ MonoBehaviour:
   Needletip: {fileID: 1148913}
   NeedleBack: {fileID: 1995033938}
   Cylinder: {fileID: 2029589982}
-  Seed: {fileID: 0}
+  Seed: {fileID: 525156739}
+  USCamera: {fileID: 620197351}
   EnteringSkin: 0
 --- !u!114 &2029589990
 MonoBehaviour:
