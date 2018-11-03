@@ -16,11 +16,13 @@ public class Mouse_Needle_Movement : MonoBehaviour {
     bool HitPointRead = false;
 
     RaycastHit hit;
+
     Vector3 RayDirection;
     Vector3 Entrypoint;
     Vector3 Fixed_Position_In_front_of_Skin_USDevice;
     Vector3 Fixed_Position_In_front_of_Skin_Cam;
     Vector3 USDevicePosition;
+
     Quaternion USCamRotationFixpoint;
     Quaternion fromRotation;
     Quaternion toRotation;
@@ -29,8 +31,6 @@ public class Mouse_Needle_Movement : MonoBehaviour {
     US_Device_Movement DeviceMovement;
 
     private bool collisionhit = false;
-
-    private float speed = 50.0f;
 
     private int Mode = 0;
 
@@ -56,6 +56,7 @@ public class Mouse_Needle_Movement : MonoBehaviour {
 
                 //Transform the needle to point at the hit triangle
                 fromRotation = Needletip.transform.rotation;
+
                 //Get the rotation to rotate to
                 toRotation = Quaternion.FromToRotation(-Needletip.transform.up, hit.normal);
 
@@ -75,21 +76,23 @@ public class Mouse_Needle_Movement : MonoBehaviour {
             if (Mode == 0)
             {
                 DeviceMovement.enabled = true;
-                Needletip.transform.Translate(Input.GetAxis("Mouse X") * Time.deltaTime * speed, 0, -Input.GetAxis("Mouse Y") * Time.deltaTime * speed, Space.Self);
+                Needletip.transform.Translate(Input.GetAxis("Mouse X") * Time.deltaTime * FeedbackStorage.AdjustableSpeed, 0, -Input.GetAxis("Mouse Y") * Time.deltaTime * FeedbackStorage.AdjustableSpeed, Space.Self);
             }
             //Rotate around the point the needle tip is at by moving your mouse
             if (Mode == 1)
             {
+
                 DeviceMovement.enabled = false;
-                USDevice.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * Time.deltaTime * speed, 0, Input.GetAxis("Mouse X")));
-                Needletip.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * Time.deltaTime * speed, 0, Input.GetAxis("Mouse X")));
+
+                USDevice.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * Time.deltaTime * FeedbackStorage.AdjustableSpeed, 0, Input.GetAxis("Mouse X")));
+                Needletip.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * Time.deltaTime * FeedbackStorage.AdjustableSpeed, 0, Input.GetAxis("Mouse X")));
             }
             //Rotate the needle itself by moving your mouse
             if (Mode == 2)
             {
                 DeviceMovement.enabled = true;
 
-                Needletip.transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * Time.deltaTime * speed * 10, 0));
+                Needletip.transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * Time.deltaTime * FeedbackStorage.AdjustableSpeed * 10, 0));
             }
         }        
         //Move back and forth with the mouse wheel
@@ -97,7 +100,8 @@ public class Mouse_Needle_Movement : MonoBehaviour {
         {
             DeviceMovement.enabled = false;
 
-            Needletip.transform.Translate(0, Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * speed * 10, 0, Space.Self);
+            Needletip.transform.Translate(0, Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * FeedbackStorage.AdjustableSpeed * 10, 0, Space.Self);
+
             EnteringSkin = true;
 
             if (Physics.Raycast(transform.position, RayDirection, out hit, Mathf.Infinity) && HitPointRead == false)
@@ -109,6 +113,7 @@ public class Mouse_Needle_Movement : MonoBehaviour {
             }
 
             CylinderMeshCollider.enabled = false;
+
             USCamera.transform.position = Fixed_Position_In_front_of_Skin_Cam;
             USCamera.transform.rotation = USCamRotationFixpoint;
 
@@ -129,7 +134,9 @@ public class Mouse_Needle_Movement : MonoBehaviour {
         if (Input.GetKeyUp("b"))
         {
             Instantiate(Seed, gameObject.transform.position, Seed.transform.rotation);
+
             FeedbackStorage.DistanceToSurface = (Needletip.transform.position - Entrypoint).magnitude;
+
             if (Physics.SphereCast(NeedleBack.transform.position, 25f, Needletip.transform.position - NeedleBack.transform.position, out hit, 100))
             {
                // Debug.Log("test collision 25");

@@ -10,7 +10,7 @@ using System.ComponentModel;
 //saves the variables of the score in this class
 public static class FeedbackStorage{
 
-    public static float durationToEntry, durationAfterEntry, needleAccuracy, distanceToSurface;
+    public static float durationToEntry, durationAfterEntry, needleAccuracy, distanceToSurface, adjustableSpeed;
 
     public static float CallCounter = 0;
 
@@ -99,6 +99,18 @@ public static class FeedbackStorage{
         set
         {
             distanceToSurface = value;
+        }
+    }
+
+    public static float AdjustableSpeed
+    {
+        get
+        {
+            return adjustableSpeed;
+        }
+        set
+        {
+            adjustableSpeed = value;
         }
     }
     //Calculates the score with all the variables

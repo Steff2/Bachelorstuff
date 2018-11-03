@@ -30,12 +30,12 @@ public class ApplySettingsScript : MonoBehaviour {
             MainCameraScript.enabled = true;
             NeedleCollider_Mesh.enabled = false;
             TextForGuidance.enabled = true;
-            Debug.Log("test guidance script");
+            /*Debug.Log("test guidance script");
             Debug.Log(Guidance_Script.enabled);
             Debug.Log("test no guidance script");
             Debug.Log(No_Guidance_Script.enabled);
             Debug.Log("test camera script");
-            Debug.Log(MainCameraScript.enabled);
+            Debug.Log(MainCameraScript.enabled);*/
         }
         else
         {
@@ -44,12 +44,12 @@ public class ApplySettingsScript : MonoBehaviour {
             MainCameraScript.enabled = false;
             NeedleCollider_Mesh.enabled = true;
             TextForGuidance.enabled = false;
-            Debug.Log("test guidance script");
+            /*Debug.Log("test guidance script");
             Debug.Log(Guidance_Script.enabled);
             Debug.Log("test no guidance script");
             Debug.Log(No_Guidance_Script.enabled);
             Debug.Log("test camera script");
-            Debug.Log(MainCameraScript.enabled);
+            Debug.Log(MainCameraScript.enabled);*/
         }
     }
 
