@@ -14,7 +14,6 @@ public class Carry_Over_Checkmark : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(FeedbackStorage.guiding_Assistance);
         FeedbackStorage.guiding_Assistance = Guiding_Assistance_Toggle.isOn;
 	}
 }

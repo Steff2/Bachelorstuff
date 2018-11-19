@@ -47,7 +47,6 @@ public class HandleScoreTextFile : MonoBehaviour {
 
         ScoreText.text += "The Distance from Surface to end position is: " + FeedbackStorage.DistanceToSurface + "\n";
 
-        writer.WriteLine("\n");
         writer.Close();
 
     }
@@ -60,29 +59,39 @@ public class HandleScoreTextFile : MonoBehaviour {
         StreamReader reader = new StreamReader(path);
 
         int lineCount = File.ReadAllLines(@"Assets/Scores.txt").Length;
-        int SkipLinesCounter = 0;
+        int takeCounter = 0;
+        int LineStopper = 0;
 
         string line;
         //Reads the lines out of the score files, every 8th line is a new set of value for a new round played
         while ((line = reader.ReadLine()) != null)
         {
+            Debug.Log("Line says: " + line);
+            if (line == "take 0")
+            {
+                takeCounter++;
+            }
             //since this compares the current entry values with the ones from the round before
             //skip while there is less than two rounds played (14 lines)
-            if (SkipLinesCounter > (lineCount - 2 * 7))
+            Debug.Log("TakeCounter: " + takeCounter);
+            Debug.Log("lineCount / 6 - 1: " + (lineCount / 6 - 1));
+            if (lineCount / 6 < 2)
             {
                 continue;
             }
 
-            else
+            else if (takeCounter == lineCount / 6 - 1)
             {
-                line = reader.ReadLine();
-
                 //split the name/value pair
+                Debug.Log("Actual line: " + line);
                 string[] splitString = line.Split(new string[] { " " }, StringSplitOptions.None);
 
-                if (splitString[0] == "outer_radius")
+                Debug.Log("String[0]: " + splitString[0]);
+                if (splitString[0] == "outer_Radius")
                 {
-                    if(FeedbackStorage.LessDangerousRadiusTriggered == true && FeedbackStorage.LessDangerousRadiusTriggered == bool.Parse(splitString[1]))
+                    Debug.Log(bool.Parse(splitString[1]));
+                    Debug.Log(FeedbackStorage.LessDangerousRadiusTriggered);
+                    if (FeedbackStorage.LessDangerousRadiusTriggered == true && FeedbackStorage.LessDangerousRadiusTriggered == bool.Parse(splitString[1]))
                     {
                         ScoreText.text += "Again too close to risky structures (30)" + "\n";
                     }
@@ -126,11 +135,11 @@ public class HandleScoreTextFile : MonoBehaviour {
                 }
                 if (splitString[0] == "duration_to_Entrypoint")
                 {
-                    if(FeedbackStorage.DurationToEntry < float.Parse(splitString[1]))
+                    if (FeedbackStorage.DurationToEntry < float.Parse(splitString[1]))
                     {
-                        ScoreText.text += "In your last attempt your time before entering was: " + FeedbackStorage.DurationToEntry + "s";
+                        ScoreText.text += "In your last attempt your time before entering was: " + splitString[1] + "s" + "\n";
                     }
-                    if(FeedbackStorage.DurationToEntry > float.Parse(splitString[1]))
+                    if (FeedbackStorage.DurationToEntry > float.Parse(splitString[1]))
                     {
 
                     }
@@ -143,7 +152,7 @@ public class HandleScoreTextFile : MonoBehaviour {
                 {
                     if (FeedbackStorage.DurationAfterEntry < float.Parse(splitString[1]))
                     {
-                        ScoreText.text += "In your last attempt your time after entering was: " + FeedbackStorage.DurationAfterEntry + "s";
+                        ScoreText.text += "In your last attempt your time after entering was: " + splitString[1] + "s" + "\n";
                     }
                     if (FeedbackStorage.DurationAfterEntry > float.Parse(splitString[1]))
                     {
@@ -158,7 +167,7 @@ public class HandleScoreTextFile : MonoBehaviour {
                 {
                     if (FeedbackStorage.DistanceToSurface < float.Parse(splitString[1]))
                     {
-                        ScoreText.text += "In your last attempt your needles distance to the surface was: " + FeedbackStorage.DistanceToSurface;
+                        ScoreText.text += "In your last attempt your needles distance to the surface was: " + splitString[1] + "\n";
                     }
                     if (FeedbackStorage.DistanceToSurface > float.Parse(splitString[1]))
                     {
@@ -169,7 +178,7 @@ public class HandleScoreTextFile : MonoBehaviour {
 
                     }
                 }
-                SkipLinesCounter++;
+                LineStopper++;
             }
         }
         reader.Close();
