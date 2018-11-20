@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class for choosing your Entrypoint in the Guiding Assistant
+/// <summary>
 public class EntrypointPosition : MonoBehaviour {
 
     public GameObject entryPoint1;
@@ -38,7 +41,6 @@ public class EntrypointPosition : MonoBehaviour {
 
     int position_counter;
 
-    // Use this for initialization
     void Start () {
 
         position_counter = 1;
@@ -47,9 +49,14 @@ public class EntrypointPosition : MonoBehaviour {
         GuidanceAssistMovement.enabled = false;
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+    /// <summary>
+    /// Sets the position
+    /// Change the positions depending on the counter
+    /// let the needle look at the tumor
+    /// if the position is chosen, lock it in and color the needle in the position
+    /// set the picture of the endposition active for ultrasound
+    /// <summary>
+    void Update () {
         
             if(Input.GetKeyDown(KeyCode.LeftArrow))
             {

@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//Movement on the Needle gameobject has gameobject directly in front and Cylinder
+
+/// <summary>
+/// Movement on the Needle gameobject has gameobject directly in front and Cylinder
+/// <summary>
 public class Mouse_Needle_Movement : MonoBehaviour {
 
     public GameObject Needletip;
@@ -43,9 +46,13 @@ public class Mouse_Needle_Movement : MonoBehaviour {
         DeviceMovement = GameObject.Find("US_Device").GetComponent<US_Device_Movement>();
         RayDirection = transform.TransformDirection(-Vector3.up);
     }
-	
-	// Update is called once per frame
-	void Update () {
+    /// <summary>
+    /// Check the distance to the skin and move if necessary
+    /// rotate needle to match collision point normal
+    /// Move according to the mode with the movement of the mouse
+    /// and check on the endposition if the danger radii were triggered
+    /// <summary>
+    void Update () {
         //Move the needle to the skin while it isn't on it
         if (Physics.Raycast(transform.position, RayDirection, out hit, Mathf.Infinity, 1<<10))
         {
@@ -130,7 +137,7 @@ public class Mouse_Needle_Movement : MonoBehaviour {
             }
             Debug.Log(Mode);
         }
-        //Signal for getting the distance to surface and set the "Entering" state basically
+        //Signal for getting the distance to surface and set the "Entering" state
         if (Input.GetKeyUp("b"))
         {
             Instantiate(Seed, gameObject.transform.position, Seed.transform.rotation);
@@ -139,20 +146,29 @@ public class Mouse_Needle_Movement : MonoBehaviour {
 
             if (Physics.SphereCast(NeedleBack.transform.position, 25f, Needletip.transform.position - NeedleBack.transform.position, out hit, 100))
             {
-               // Debug.Log("test collision 25");
+
+                FeedbackStorage.LessDangerousRadiusTriggered = true;
 
                 if (Physics.SphereCast(NeedleBack.transform.position, 15f, Needletip.transform.position - NeedleBack.transform.position, out hit, 100))
                 {
-                    //Debug.Log("test collision 15");
-                   // Debug.Log(hit.point);
+                    FeedbackStorage.DangerRadiusTriggered = true;
                 }
+
+                else
+                {
+                    FeedbackStorage.DangerRadiusTriggered = false;
+                }
+
+            }
+            else
+            {
+                FeedbackStorage.LessDangerousRadiusTriggered = false;
             }
         }
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        //Debug.Log("test");
 
         collisionhit = true;
     }

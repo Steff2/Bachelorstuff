@@ -6,8 +6,9 @@ using System.Text;
 using System.Threading;
 using System.ComponentModel;
 
-
-//saves the variables of the score in this class
+/// <summary>
+///saves the variables of the score in this class
+/// <summary>
 public static class FeedbackStorage{
 
     public static float durationToEntry, durationAfterEntry, needleAccuracy, distanceToSurface, adjustableSpeed;

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Movement of the needle after deciding the entry position with the guiding system
+/// <summary>
+/// Movement of the needle after deciding the entry position with the guiding system
+/// <summary>
 public class GuidingAssistanceMovement : MonoBehaviour {
 
     public GameObject Seed;

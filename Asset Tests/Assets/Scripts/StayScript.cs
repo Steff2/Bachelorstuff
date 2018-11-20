@@ -2,14 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-//Script to hold the mesh parts in place
+/// <summary>
+/// Script to hold the mesh parts in place
+/// <summary>
 public class StayScript : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update () {

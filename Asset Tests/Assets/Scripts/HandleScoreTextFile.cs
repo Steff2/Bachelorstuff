@@ -3,6 +3,9 @@ using UnityEngine.UI;
 using System;
 using System.IO;
 
+/// <summary>
+/// Handles the visualization of the score and the comparison
+/// <summary>
 public class HandleScoreTextFile : MonoBehaviour {
 
     public Text ScoreText;

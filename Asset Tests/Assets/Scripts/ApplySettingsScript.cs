@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-//Apply the chosen guidance settings from the menu scene on the scripts and components
+/// <summary>
+/// Apply the chosen guidance settings from the menu scene on the scripts and components
+/// <summary>
 public class ApplySettingsScript : MonoBehaviour {
 
     EntrypointPosition Guidance_Script;
@@ -14,7 +15,9 @@ public class ApplySettingsScript : MonoBehaviour {
     Text TextWithoutGuidance;
     MeshCollider NeedleCollider_Mesh;
 
-    //Get the Scripts and components from objects
+    /// <summary>
+    /// Get the Scripts and components from objects
+    /// <summary>
     void Start () {
 
         Guidance_Script = GameObject.Find("NeedleTip").GetComponent<EntrypointPosition>();
@@ -30,12 +33,6 @@ public class ApplySettingsScript : MonoBehaviour {
             MainCameraScript.enabled = true;
             NeedleCollider_Mesh.enabled = false;
             TextForGuidance.enabled = true;
-            /*Debug.Log("test guidance script");
-            Debug.Log(Guidance_Script.enabled);
-            Debug.Log("test no guidance script");
-            Debug.Log(No_Guidance_Script.enabled);
-            Debug.Log("test camera script");
-            Debug.Log(MainCameraScript.enabled);*/
         }
         else
         {
@@ -44,12 +41,6 @@ public class ApplySettingsScript : MonoBehaviour {
             MainCameraScript.enabled = false;
             NeedleCollider_Mesh.enabled = true;
             TextForGuidance.enabled = false;
-            /*Debug.Log("test guidance script");
-            Debug.Log(Guidance_Script.enabled);
-            Debug.Log("test no guidance script");
-            Debug.Log(No_Guidance_Script.enabled);
-            Debug.Log("test camera script");
-            Debug.Log(MainCameraScript.enabled);*/
         }
     }
 
