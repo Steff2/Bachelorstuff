@@ -84,6 +84,7 @@ public class Mouse_Needle_Movement : MonoBehaviour {
             {
                 DeviceMovement.enabled = true;
                 Needletip.transform.Translate(Input.GetAxis("Mouse X") * Time.deltaTime * FeedbackStorage.AdjustableSpeed, 0, -Input.GetAxis("Mouse Y") * Time.deltaTime * FeedbackStorage.AdjustableSpeed, Space.Self);
+
             }
             //Rotate around the point the needle tip is at by moving your mouse
             if (Mode == 1)
@@ -93,6 +94,7 @@ public class Mouse_Needle_Movement : MonoBehaviour {
 
                 USDevice.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * Time.deltaTime * FeedbackStorage.AdjustableSpeed, 0, Input.GetAxis("Mouse X")));
                 Needletip.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * Time.deltaTime * FeedbackStorage.AdjustableSpeed, 0, Input.GetAxis("Mouse X")));
+                Debug.Log("moving mode 1");
             }
             //Rotate the needle itself by moving your mouse
             if (Mode == 2)
@@ -100,6 +102,7 @@ public class Mouse_Needle_Movement : MonoBehaviour {
                 DeviceMovement.enabled = true;
 
                 Needletip.transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * Time.deltaTime * FeedbackStorage.AdjustableSpeed * 10, 0));
+                Debug.Log("moving mode 2");
             }
         }        
         //Move back and forth with the mouse wheel
@@ -108,6 +111,7 @@ public class Mouse_Needle_Movement : MonoBehaviour {
             DeviceMovement.enabled = false;
 
             Needletip.transform.Translate(0, Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * FeedbackStorage.AdjustableSpeed * 10, 0, Space.Self);
+            Debug.Log("moving mode 3");
 
             EnteringSkin = true;
 
